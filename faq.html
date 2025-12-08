@@ -1,339 +1,175 @@
 <!doctype html>
 <html lang="id">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>FAQ Usaha Cukur</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>FAQ Bisnis </title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        /* Variabel Warna (Disesuaikan agar konsisten) */
+        :root{
+            --primary-faq:#0ea5e9;
+            --bg-faq:#f0f9ff;
+            --white-faq:#ffffff;
+            --text-faq:#0f172a;
+            --muted-faq:#64748b;
+            --radius-faq:16px; /* Disederhanakan sedikit */
+        }
+        
+        /* Reset dan Base Styling */
+        body{
+            font-family: Inter, sans-serif;
+            background: var(--bg-faq);
+            margin: 0;
+            padding: 0; /* Padding dipindahkan ke container untuk kontrol yang lebih baik */
+            color: var(--text-faq);
+        }
+        
+        .container-faq{
+            max-width: 600px; /* Lebar maksimum disesuaikan sedikit */
+            margin: 0 auto;
+            padding: 30px 20px; /* Padding default untuk desktop */
+        }
+        
+        /* Judul Section */
+        .section-title{
+            font-size: 24px; /* Dikecilkan sedikit untuk kerapian */
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            justify-content: center; /* Centering judul */
+            gap: 10px;
+            margin-bottom: 30px;
+            color: var(--text-faq);
+        }
+        .section-title span{
+            font-size: 28px;
+            color: var(--primary-faq);
+        }
 
-  <style>
-    :root{
-      --primary:#0ea5e9;
-      --bg:#f0f9ff;
-      --white:#ffffff;
-      --text:#0f172a;
-      --muted:#64748b;
-      --radius:20px;
-    }
-    body{
-      font-family:Inter, system-ui, -apple-system, sans-serif;
-      background:var(--bg);
-      margin:0;
-      padding:24px;
-      color:var(--text);
-    }
-    .container{max-width:900px;margin:0 auto}
+        /* Kotak FAQ */
+        .faq-box{
+            background: var(--white-faq);
+            padding: 18px; /* Padding kotak disesuaikan */
+            border-radius: var(--radius-faq);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            margin-bottom: 12px; /* Jarak antar kotak dikurangi */
+            cursor: pointer;
+            transition: .2s;
+            border: 1px solid #e2e8f0; /* Tambahkan sedikit border */
+        }
+        .faq-box:hover{
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+        }
 
-    .section-title{
-      font-size:26px;
-      font-weight:800;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      gap:10px;
-      margin-bottom:22px;
-      text-align:center;
-    }
-    .section-title span.icon-q{
-      font-size:30px;
-      color:var(--primary);
-    }
-
-    .faq-box{
-      background:var(--white);
-      padding:22px;
-      border-radius:var(--radius);
-      box-shadow:0 4px 12px rgba(0,0,0,0.05);
-      margin-bottom:16px;
-      cursor:pointer;
-      transition:.2s;
-      border:1px solid #e2e8f0;
-    }
-    .faq-box:hover{
-      transform:translateY(-2px);
-      border-color:#cbd5e1;
-    }
-
-    .faq-q{
-      font-size:16px;
-      font-weight:700;
-      margin:0;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-    }
-
-    .faq-a{
-      margin-top:14px;
-      font-size:14px;
-      color:var(--muted);
-      line-height:1.6;
-      display:none;
-    }
-    .open .faq-a{display:block;}
-
-    .icon{
-      font-size:22px;
-      color:var(--primary);
-      font-weight:900;
-      transition:transform .2s;
-    }
-    .open .icon{transform:rotate(45deg);}
-
-    /* POPUP (foto profil orang Indo) */
-    #sales-popup{
-      position:fixed;
-      bottom:18px;
-      right:18px;
-      z-index:9999;
-      display:none;
-    }
-    .sales-card{
-      display:flex;
-      align-items:center;
-      gap:10px;
-      background:#ffffff;
-      border-radius:999px;
-      padding:8px 14px;
-      box-shadow:0 10px 25px rgba(15,23,42,0.18);
-      border:1px solid #e2e8f0;
-      max-width:260px;
-      font-size:12px;
-    }
-    .sales-avatar-wrap{
-      position:relative;
-      width:32px;
-      height:32px;
-      border-radius:999px;
-      overflow:hidden;
-      flex-shrink:0;
-    }
-    .sales-avatar-img{
-      width:100%;
-      height:100%;
-      object-fit:cover;
-      display:block;
-    }
-    .sales-text-main{font-weight:700;color:#0f172a;line-height:1.2;}
-    .sales-location{color:#64748b;font-size:11px;}
-    .sales-pill-row{display:flex;align-items:center;gap:6px;margin-top:3px;}
-    .sales-pill{background:#eef2ff;color:#4f46e5;padding:2px 8px;border-radius:999px;font-size:10px;font-weight:700;}
-    .sales-dot{width:3px;height:3px;border-radius:999px;background:#cbd5f5;}
-    .sales-time{font-size:10px;color:#9ca3af;}
-    .sales-close{margin-left:6px;cursor:pointer;color:#cbd5e1;font-size:11px;}
-    .sales-close:hover{color:#94a3b8;}
-    @keyframes popup-in{from{opacity:0;transform:translateY(12px);}to{opacity:1;transform:translateY(0);}}
-    @keyframes popup-out{from{opacity:1;transform:translateY(0);}to{opacity:0;transform:translateY(12px);}}
-    .popup-enter{animation:popup-in .35s ease-out forwards;}
-    .popup-exit{animation:popup-out .35s ease-in forwards;}
-  </style>
+        /* Pertanyaan */
+        .faq-q{
+            font-size: 16px; /* Ukuran font pertanyaan */
+            font-weight: 700;
+            margin: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            line-height: 1.4;
+        }
+        
+        /* Jawaban */
+        .faq-a{
+            margin-top: 15px;
+            font-size: 14px; /* Ukuran font jawaban */
+            color: var(--muted-faq);
+            line-height: 1.6;
+            display: none;
+            padding-top: 10px;
+            border-top: 1px solid #f1f5f9;
+        }
+        .open .faq-a{
+            display: block;
+        }
+        
+        /* Ikon Plus/Minus */
+        .icon{
+            font-size: 20px; /* Ukuran ikon disesuaikan */
+            color: var(--primary-faq);
+            transition: transform 0.2s;
+            flex-shrink: 0;
+            margin-left: 10px;
+        }
+        .open .icon{
+            transform: rotate(45deg);
+        }
+        
+        /* Mobile Optimization */
+        @media (max-width: 600px) {
+            .container-faq {
+                padding: 20px 15px; /* Padding lebih tipis di HP */
+            }
+            .section-title {
+                font-size: 20px;
+                margin-bottom: 20px;
+            }
+            .section-title span {
+                font-size: 24px;
+            }
+            .faq-q {
+                font-size: 14px;
+            }
+            .faq-a {
+                font-size: 13px;
+            }
+        }
+    </style>
 </head>
 <body>
-  <div class="container">
-    <h2 class="section-title">
-      <span class="icon-q">❓</span>
-      <span>
-        Masih Ragu Mulai Usaha Cukur?
-      </span>
-    </h2>
+    <div class="container-faq">
+        <h2 class="section-title"><span>❓</span> Masih Ada Pertanyaan</h2>
 
-    <div class="faq-box" onclick="toggleFaq(this)">
-      <p class="faq-q">
-        🤔 E-book ini cocok untuk pemula?
-        <span class="icon">＋</span>
-      </p>
-      <div class="faq-a">
-        Cocok banget! Walaupun kamu belum pernah cukur orang, panduannya dibuat step-by-step sampai kamu bisa praktik.
-      </div>
-    </div>
-
-    <div class="faq-box" onclick="toggleFaq(this)">
-      <p class="faq-q">
-        🤔 Butuh modal besar untuk mulai usaha cukur?
-        <span class="icon">＋</span>
-      </p>
-      <div class="faq-a">
-        Enggak perlu. Kamu bisa mulai dari modal kecil dengan peralatan dasar yang sudah direkomendasikan di e-book.
-      </div>
-    </div>
-
-    <div class="faq-box" onclick="toggleFaq(this)">
-      <p class="faq-q">
-        🤔 Apakah harus punya skill cukur dulu?
-        <span class="icon">＋</span>
-      </p>
-      <div class="faq-a">
-        Tidak wajib. E-book ini menjelaskan teknik dasar pemula sampai kamu siap menerima pelanggan pertama.
-      </div>
-    </div>
-
-    <div class="faq-box" onclick="toggleFaq(this)">
-      <p class="faq-q">
-        🤔 E-book ini ada panduan menentukan harga jasa?
-        <span class="icon">＋</span>
-      </p>
-      <div class="faq-a">
-        Ada! Kamu dapat rumus menentukan harga potong rambut dan cara tetap untung meski baru mulai.
-      </div>
-    </div>
-
-    <div class="faq-box" onclick="toggleFaq(this)">
-      <p class="faq-q">
-        🤔 Apakah ada contoh promosi untuk menarik pelanggan pertama?
-        <span class="icon">＋</span>
-      </p>
-      <div class="faq-a">
-        Ada! Kamu dapat template promosi, contoh caption, dan strategi supaya cepat dapat pelanggan awal.
-      </div>
-    </div>
-
-    <div class="faq-box" onclick="toggleFaq(this)">
-      <p class="faq-q">
-        🤔 File e-book dikirim lewat apa?
-        <span class="icon">＋</span>
-      </p>
-      <div class="faq-a">
-        Setelah pembayaran, kamu dapat link download via WhatsApp atau email. Format PDF, bisa dibuka di HP.
-      </div>
-    </div>
-
-    <div class="faq-box" onclick="toggleFaq(this)">
-      <p class="faq-q">
-        🤔 Ada garansi uang kembali?
-        <span class="icon">＋</span>
-      </p>
-      <div class="faq-a">
-        Ada! Kamu mendapat <strong>7 hari garansi refund</strong> tanpa syarat khusus untuk paket lengkap.
-      </div>
-    </div>
-
-    <div class="faq-box" onclick="toggleFaq(this)">
-      <p class="faq-q">
-        🤔 Kenapa harus beli sekarang?
-        <span class="icon">＋</span>
-      </p>
-      <div class="faq-a">
-        Karena promo & bonus terbatas hanya untuk pembeli tercepat. Kalau kuota habis, harga kembali normal.
-      </div>
-    </div>
-  </div>
-
-  <!-- POPUP PEMBELI (foto orang Indo) -->
-  <div id="sales-popup">
-    <div class="sales-card">
-      <div class="sales-avatar-wrap">
-        <img id="popup-avatar" class="sales-avatar-img" src="" alt="Foto pembeli">
-      </div>
-      <div>
-        <div class="sales-text-main" id="popup-name">Mama Rena</div>
-        <div class="sales-location">dari <span id="popup-location">Bogor</span></div>
-        <div class="sales-pill-row">
-          <div class="sales-pill">Baru saja beli</div>
-          <div class="sales-dot"></div>
-          <div class="sales-time" id="popup-time">Baru saja</div>
+        <div class="faq-box" onclick="toggle(this)">
+            <p class="faq-q">🤔 E-book ini cocok untuk pemula?<span class="icon">＋</span></p>
+            <div class="faq-a">Cocok banget! Walaupun kamu belum pernah cukur orang, panduannya dibuat step-by-step sampai bisa praktik.</div>
         </div>
-      </div>
-      <div class="sales-close" id="popup-close">✕</div>
+
+        <div class="faq-box" onclick="toggle(this)">
+            <p class="faq-q">🤔 Butuh modal besar untuk mulai usaha cukur?<span class="icon">＋</span></p>
+            <div class="faq-a">Enggak perlu. Kamu bisa mulai dari modal kecil dengan peralatan dasar yang sudah direkomendasikan.</div>
+        </div>
+
+        <div class="faq-box" onclick="toggle(this)">
+            <p class="faq-q">🤔 Apakah harus punya skill cukur dulu?<span class="icon">＋</span></p>
+            <div class="faq-a">Tidak wajib. E-book ini sudah menerangkan teknik dasar pemula sampai kamu siap menerima pelanggan.</div>
+        </div>
+
+        <div class="faq-box" onclick="toggle(this)">
+            <p class="faq-q">🤔 E-book ini ada panduan menentukan harga jasa?<span class="icon">＋</span></p>
+            <div class="faq-a">Ada! Kamu dapat rumus menentukan harga potong rambut dan cara biar tetap untung meski baru mulai.</div>
+        </div>
+
+        <div class="faq-box" onclick="toggle(this)">
+            <p class="faq-q">🤔Apakah ada contoh promosi untuk menarik pelanggan pertama?<span class="icon">＋</span></p>
+            <div class="faq-a">Ada! Kamu dapat template promosi, contoh caption, dan strategi supaya cepat dapat pelanggan awal.</div>
+        </div>
+
+        <div class="faq-box" onclick="toggle(this)">
+            <p class="faq-q">🤔 File e-book dikirim lewat apa?<span class="icon">＋</span></p>
+            <div class="faq-a">Setelah pembayaran, kamu dapat link download via WhatsApp atau Email. Format PDF, bisa dibuka di HP.</div>
+        </div>
+
+        <div class="faq-box" onclick="toggle(this)">
+            <p class="faq-q">🤔 Ada garansi uang kembali?<span class="icon">＋</span></p>
+            <div class="faq-a">Ada! Kamu mendapat **7 hari garansi refund** tanpa syarat khusus untuk Paket Komplit.</div>
+        </div>
+
+        <div class="faq-box" onclick="toggle(this)">
+            <p class="faq-q">🤔 Kenapa harus beli sekarang?<span class="icon">＋</span></p>
+            <div class="faq-a">Karena promo & bonus terbatas hanya untuk pembeli tercepat. Jika kuota habis, harga kembali normal.</div>
+        </div>
     </div>
-  </div>
 
-  <script>
-    function toggleFaq(el){ el.classList.toggle('open'); }
-
-    // Data pembeli khusus popup dengan foto orang Indo
-    const buyers = [
-      { 
-        name: "Mam Della", 
-        location: "Bandung", 
-        avatar: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-q8xqh6yXuc_tqjF5zXCHSOgDzkb14VPSGw&s"
-      },
-      { 
-        name: "Kak Ayu", 
-        location: "Jakarta", 
-        avatar: "https://img.okezone.com/content/2020/06/11/617/2228581/inspirasi-gaya-hijab-ibu-muda-tika-bravani-LbzZcfDGpi.JPG"
-      },
-      { 
-        name: "Kak Nanda", 
-        location: "Medan", 
-        avatar: "https://nnc-media.netralnews.com/IMG-Netral-News-User-2994-A0XIZ96WSO.jpg"
-      },
-      { 
-        name: "Mama Kesha", 
-        location: "Surabaya", 
-        avatar: "https://akcdn.detik.net.id/visual/2020/03/25/7e6bb399-b453-456e-bd13-734e185a055b_11.jpeg?w=480&q=90"
-      },
-      { 
-        name: "Mama Rena", 
-        location: "Bogor", 
-        avatar: "https://mediajatim.com/wp-content/uploads/2023/06/Screenshot_20230614_184956_Instagram.jpg"
-      },
-      { 
-        name: "Ka Rina", 
-        location: "Solo", 
-        avatar: "https://chanelmuslim.com/wp-content/uploads/2022/09/WhatsApp-Image-2022-09-01-at-12.36.32.jpg"
-      },
-      { 
-        name: "Sella Andini", 
-        location: "Jakarta", 
-        avatar: "https://akcdn.detik.net.id/visual/2020/02/17/ed49bc49-f454-4a0d-bf23-73fcaf8272b7_11.jpeg?w=480&q=90"
-      },
-      { 
-        name: "Naya N", 
-        location: "Sumedang", 
-        avatar: "https://timesindonesia.co.id/_next/image?url=https%3A%2F%2Fcdn-1.timesmedia.co.id%2Fimages%2F2025%2F12%2F02%2FuNewsIMG-13692ea00f989a4_1764663311.jpg&w=3840&q=70"
-      },
-      { 
-        name: "Mama Billa", 
-        location: "Semarang", 
-        avatar: "https://akcdn.detik.net.id/visual/2022/04/02/lita-finalis-miss-indonesia-yang-kini-jadi-ibu-rumah-tangga_11.jpeg?w=720&q=90"
-      },
-      { 
-        name: "Kirana A", 
-        location: "Bogor", 
-        avatar: "https://i.pinimg.com/474x/61/66/98/6166981056f999d6201b292aaa12a77b.jpg"
-      }
-    ];
-
-    const times = ["Baru saja", "1 menit lalu", "2 menit lalu", "5 menit lalu"];
-
-    const popupEl  = document.getElementById("sales-popup");
-    const nameEl   = document.getElementById("popup-name");
-    const locEl    = document.getElementById("popup-location");
-    const timeEl   = document.getElementById("popup-time");
-    const avatarEl = document.getElementById("popup-avatar");
-    const closeEl  = document.getElementById("popup-close");
-
-    function showSalesPopup(){
-      const buyer = buyers[Math.floor(Math.random()*buyers.length)];
-      const time  = times[Math.floor(Math.random()*times.length)];
-
-      nameEl.textContent  = buyer.name;
-      locEl.textContent   = buyer.location;
-      timeEl.textContent  = time;
-      avatarEl.src        = buyer.avatar;
-
-      popupEl.style.display = "block";
-      popupEl.classList.remove("popup-exit");
-      popupEl.classList.add("popup-enter");
-
-      setTimeout(()=>{
-        popupEl.classList.remove("popup-enter");
-        popupEl.classList.add("popup-exit");
-        setTimeout(()=>{ popupEl.style.display="none"; }, 350);
-      }, 5000);
-    }
-
-    closeEl.addEventListener("click", ()=>{
-      popupEl.classList.remove("popup-enter");
-      popupEl.classList.add("popup-exit");
-      setTimeout(()=>{ popupEl.style.display="none"; }, 350);
-    });
-
-    // Muncul pertama kali setelah 4 detik, lalu acak tiap 12–25 detik
-    setTimeout(showSalesPopup, 4000);
-    setInterval(()=>{
-      showSalesPopup();
-    }, Math.floor(Math.random()*(25000-12000+1))+12000);
-  </script>
+    <script>
+        function toggle(el){ el.classList.toggle('open'); }
+    </script>
 </body>
 </html>
