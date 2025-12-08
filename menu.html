@@ -7,7 +7,7 @@
     <!-- Font Inter -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
     <!-- Font Awesome untuk Icon -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/aja   x/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <style>
         /* --- RESET & BASE --- */
@@ -17,14 +17,12 @@
         body {
             font-family: 'Inter', system-ui, -apple-system, sans-serif;
             line-height: 1.6;
-            color: #374151; /* Abu gelap yang nyaman */
+            color: #374151;
             background-color: #ffffff;
         }
 
-        /* Global Link Reset */
         a { text-decoration: none !important; }
 
-        /* Container Utama */
         .container {
             max-width: 650px;
             margin: 0 auto;
@@ -35,12 +33,11 @@
             min-height: 100vh;
         }
 
-        /* --- COLORS & UTILITIES --- */
         :root {
-            --primary: #4f46e5; /* Indigo */
+            --primary: #4f46e5;
             --primary-dark: #3730a3;
-            --accent: #f59e0b; /* Amber */
-            --danger: #dc2626; /* Merah */
+            --accent: #f59e0b;
+            --danger: #dc2626;
             --bg-soft: #ffffff;
         }
 
@@ -53,7 +50,7 @@
             border-bottom: 1px solid #f1f5f9;
         }
 
-        /* --- LIST STYLING (Checklist) --- */
+        /* LIST */
         ul.check-list {
             list-style: none;
             padding: 0;
@@ -81,11 +78,11 @@
 
         ul.check-list li span.icon {
             font-size: 22px;
-            flex-shrink: 0; /* Agar icon tidak mengecil/gepeng */
+            flex-shrink: 0;
             margin-top: 2px;
         }
 
-        /* --- PRICING CARD STYLING --- */
+        /* PRICING */
         .pricing-section { 
             background-color: #ffffff;
         }
@@ -109,7 +106,6 @@
             z-index: 10;
         }
 
-        /* --- ANIMASI TAG LARIS --- */
         .tag-laris {
             position: absolute;
             top: -12px;
@@ -195,7 +191,7 @@
             color: #4338ca;
         }
 
-        /* --- BUTTONS --- */
+        /* BUTTONS */
         .btn {
             display: block;
             width: 100%;
@@ -268,6 +264,125 @@
         .text-strike-muted { text-decoration: line-through; color: #94a3b8; font-size: 13px; }
         
         #cara-pesan { min-height: 20px; }
+
+        /* --- SALES POPUP KECIL --- */
+        #sales-popup {
+    position: fixed;
+    top: 18px;
+    right: 18px;
+    z-index: 9999;
+    display: none;
+}
+
+
+        .sales-card {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: #ffffff;
+            border-radius: 999px;
+            padding: 8px 14px;
+            box-shadow: 0 10px 25px rgba(15, 23, 42, 0.18);
+            border: 1px solid #e2e8f0;
+            max-width: 260px;
+            font-size: 12px;
+        }
+
+        .sales-avatar-wrap {
+            position: relative;
+            width: 32px;
+            height: 32px;
+            border-radius: 999px;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .sales-avatar {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .sales-badge {
+            position: absolute;
+            bottom: -2px;
+            right: -2px;
+            background: #22c55e;
+            color: #ffffff;
+            border-radius: 999px;
+            border: 2px solid #ffffff;
+            width: 14px;
+            height: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 9px;
+        }
+
+        .sales-text-main {
+            font-weight: 700;
+            color: #0f172a;
+            line-height: 1.2;
+        }
+
+        .sales-location {
+            color: #64748b;
+            font-size: 11px;
+        }
+
+        .sales-pill-row {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            margin-top: 3px;
+        }
+
+        .sales-pill {
+            background: #eef2ff;
+            color: #4f46e5;
+            padding: 2px 8px;
+            border-radius: 999px;
+            font-size: 10px;
+            font-weight: 700;
+        }
+
+        .sales-dot {
+            width: 3px;
+            height: 3px;
+            border-radius: 999px;
+            background: #cbd5f5;
+        }
+
+        .sales-time {
+            font-size: 10px;
+            color: #9ca3af;
+        }
+
+        .sales-close {
+            margin-left: 6px;
+            cursor: pointer;
+            color: #cbd5e1;
+            font-size: 11px;
+        }
+        .sales-close:hover {
+            color: #94a3b8;
+        }
+
+        @keyframes popup-in {
+            from { opacity: 0; transform: translateY(12px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes popup-out {
+            from { opacity: 1; transform: translateY(0); }
+            to   { opacity: 0; transform: translateY(12px); }
+        }
+
+        .popup-enter {
+            animation: popup-in 0.35s ease-out forwards;
+        }
+        .popup-exit {
+            animation: popup-out 0.35s ease-in forwards;
+        }
     </style>
 </head>
 <body>
@@ -283,7 +398,7 @@
         </h1>
 
         <p style="font-size:16px; color:#475569; max-width:500px; margin:0 auto 20px;" class="text-center">
-            Capek lihat alat cukur cuma jadi pajangan? Saatnya ubah jadi <mark class="bg-highlight">mesin uang dari rumah</mark> 
+            Capek lihat alat cukur cuma jadi pajangan? Saatnya ubah jadi mesin uang dari rumah.
         </p>
 
         <hr style="border:none; height:2px; background:#e2e8f0; width:50%; margin:25px auto;">
@@ -473,10 +588,90 @@
         </div>
     </section>
 
-    <!-- SECTION TARGET SCROLL -->
     <div id="cara-pesan"></div>
 
 </div>
+
+<!-- SALES POPUP KECIL -->
+<div id="sales-popup">
+    <div class="sales-card">
+        <div class="sales-avatar-wrap">
+            <img id="popup-avatar" src="" alt="buyer" class="sales-avatar">
+            <div class="sales-badge">
+                <i class="fas fa-check"></i>
+            </div>
+        </div>
+        <div>
+            <div class="sales-text-main" id="popup-name">Mama Rina</div>
+            <div class="sales-location">dari <span id="popup-location">Semarang</span></div>
+            <div class="sales-pill-row">
+                <div class="sales-pill">Baru saja beli</div>
+                <div class="sales-dot"></div>
+                <div class="sales-time" id="popup-time">5 menit lalu</div>
+            </div>
+        </div>
+        <div class="sales-close" id="popup-close">✕</div>
+    </div>
+</div>
+
+<script>
+    // DATA PEMBELI DUMMY
+    const buyers = [
+        { name: "Mama Rina",   location: "Semarang",       photo: "https://i.pravatar.cc/80?u=rina" },
+        { name: "Bang Fajar",  location: "Jakarta Timur",  photo: "https://i.pravatar.cc/80?u=fajar" },
+        { name: "Mas Doni",    location: "Surabaya",       photo: "https://i.pravatar.cc/80?u=doni" },
+        { name: "Kak Raka",    location: "Bandung",        photo: "https://i.pravatar.cc/80?u=raka" },
+        { name: "Pak Andi",    location: "Depok",          photo: "https://i.pravatar.cc/80?u=andi" },
+        { name: "Mas Yoga",    location: "Yogyakarta",     photo: "https://i.pravatar.cc/80?u=yoga" }
+    ];
+
+    const times = ["Baru saja", "1 menit lalu", "2 menit lalu", "3 menit lalu", "5 menit lalu"];
+
+    const popupEl   = document.getElementById("sales-popup");
+    const nameEl    = document.getElementById("popup-name");
+    const locEl     = document.getElementById("popup-location");
+    const timeEl    = document.getElementById("popup-time");
+    const avatarEl  = document.getElementById("popup-avatar");
+    const closeEl   = document.getElementById("popup-close");
+
+    function showSalesPopup() {
+        const buyer = buyers[Math.floor(Math.random() * buyers.length)];
+        const time  = times[Math.floor(Math.random() * times.length)];
+
+        nameEl.textContent   = buyer.name;
+        locEl.textContent    = buyer.location;
+        timeEl.textContent   = time;
+        avatarEl.src         = buyer.photo;
+
+        popupEl.style.display = "block";
+        popupEl.classList.remove("popup-exit");
+        popupEl.classList.add("popup-enter");
+
+        setTimeout(() => {
+            popupEl.classList.remove("popup-enter");
+            popupEl.classList.add("popup-exit");
+            setTimeout(() => {
+                popupEl.style.display = "none";
+            }, 350);
+        }, 5000);
+    }
+
+    // Tutup manual
+    closeEl.addEventListener("click", () => {
+        popupEl.classList.remove("popup-enter");
+        popupEl.classList.add("popup-exit");
+        setTimeout(() => {
+            popupEl.style.display = "none";
+        }, 350);
+    });
+
+    // Muncul pertama kali setelah 4 detik
+    setTimeout(showSalesPopup, 4000);
+    // Lalu muncul lagi tiap 12–25 detik
+    setInterval(() => {
+        showSalesPopup();
+    }, Math.floor(Math.random() * (25000 - 12000 + 1)) + 12000);
+</script>
 
 </body>
 </html>
