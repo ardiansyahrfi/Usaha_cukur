@@ -177,7 +177,7 @@
           box-shadow:0 4px 0 var(--btn-shadow);
         }
 
-        /* SALES POPUP – KANAN BAWAH, TANPA BADGE CEKLIS */
+        /* SALES POPUP – FOTO PROFIL ORANG INDO */
         #sales-popup{
             position:fixed;
             bottom:18px;
@@ -205,16 +205,11 @@
             overflow:hidden;
             flex-shrink:0;
         }
-        .sales-avatar-initial{
+        .sales-avatar-img{
             width:100%;
             height:100%;
-            display:flex;
-            align-items:center;
-            justify-content:center;
-            font-weight:800;
-            font-size:13px;
-            color:#ffffff;
-            background:linear-gradient(135deg,#4f46e5,#6366f1);
+            object-fit:cover;
+            display:block;
         }
         .sales-text-main{font-weight:700;color:#0f172a;line-height:1.2;}
         .sales-location{color:#64748b;font-size:11px;}
@@ -418,10 +413,9 @@
 
             <ul class="features">
               <li><i class="fa-solid fa-book"></i> E-Book Utama Premium</li>
-              <li><i class="fa-solid fa-file-excel"></i> BONUS: Template Harga Barbershop biar usaha terlihat profesional dari hari pertama</li>
-              <li><i class="fa-brands fa-whatsapp"></i> BONUS: Script Chat WA untuk cepat closing</li>
-              <li><i class="fa-solid fa-clipboard-check"></i> BONUS: Checklist Peralatan Modal Minim agar belanja lebih hemat dan tepat</li>
-              <li><i class="fa-solid fa-star"></i> BONUS: Panduan Mulai Usaha Hari Pertama</li>
+              <li><i class="fa-solid fa-map-location-dot"></i> BONUS: Optimasi Google Maps biar usaha kamu mudah ditemukan</li>
+              <li><i class="fa-solid fa-scissors"></i> BONUS: E-book 10 Gaya Rambut Pria populer untuk potong percaya diri</li>
+              <li><i class="fa-solid fa-palette"></i> BONUS: 30 Template Canva Banner siap pakai untuk promosi</li
             </ul>
 
             <div class="cta">
@@ -444,9 +438,9 @@
 
             <ul class="features">
               <li><i class="fa-solid fa-book"></i> E-Book Utama Premium</li>
-              <li><i class="fa-solid fa-xmark" style="color:#dc2626;"></i> Tanpa Template Harga Barbershop</li>
-              <li><i class="fa-solid fa-xmark" style="color:#dc2626;"></i> Tanpa Script Chat WA</li>
-              <li><i class="fa-solid fa-xmark" style="color:#dc2626;"></i> Tanpa Checklist Peralatan</li>
+              <li><i class="fa-solid fa-xmark" style="color:#dc2626;"></i> Tanpa Bonus Optimasi GMB</li>
+              <li><i class="fa-solid fa-xmark" style="color:#dc2626;"></i> Tanpa Bonus E-Book 10 Gaya Rambut</li>
+              <li><i class="fa-solid fa-xmark" style="color:#dc2626;"></i> Tanpa Bonus 30 Template Canva</li>
             </ul>
 
             <div class="cta">
@@ -473,7 +467,7 @@
 <div id="sales-popup">
     <div class="sales-card">
         <div class="sales-avatar-wrap">
-            <div id="popup-avatar" class="sales-avatar-initial">MR</div>
+            <img id="popup-avatar" class="sales-avatar-img" src="" alt="Foto pembeli">
         </div>
         <div>
             <div class="sales-text-main" id="popup-name">Mama Rina</div>
@@ -489,16 +483,61 @@
 </div>
 
 <script>
-    const buyers = [
-        { name: "Mama Rina",   location: "Semarang" },
-        { name: "Bang Fajar",  location: "Jakarta Timur" },
-        { name: "Mas Doni",    location: "Surabaya" },
-        { name: "Kak Raka",    location: "Bandung" },
-        { name: "Pak Andi",    location: "Depok" },
-        { name: "Mas Yoga",    location: "Yogyakarta" }
+    // DATA PEMBELI KHUSUS POPUP (dengan foto orang Indo)
+    const popupBuyers = [
+        { 
+            name: "Mam Della", 
+            location: "Bandung", 
+            avatar: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-q8xqh6yXuc_tqjF5zXCHSOgDzkb14VPSGw&s"
+        },
+        { 
+            name: "Kak Ayu", 
+            location: "Jakarta", 
+            avatar: "https://img.okezone.com/content/2020/06/11/617/2228581/inspirasi-gaya-hijab-ibu-muda-tika-bravani-LbzZcfDGpi.JPG"
+        },
+        { 
+            name: "Kak Nanda", 
+            location: "Medan", 
+            avatar: "https://nnc-media.netralnews.com/IMG-Netral-News-User-2994-A0XIZ96WSO.jpg"
+        },
+        { 
+            name: "Mama Kesha", 
+            location: "Surabaya", 
+            avatar: "https://akcdn.detik.net.id/visual/2020/03/25/7e6bb399-b453-456e-bd13-734e185a055b_11.jpeg?w=480&q=90"
+        },
+        { 
+            name: "Mama Rena", 
+            location: "Bogor", 
+            avatar: "https://mediajatim.com/wp-content/uploads/2023/06/Screenshot_20230614_184956_Instagram.jpg"
+        },
+        { 
+            name: "Ka Rina", 
+            location: "Solo", 
+            avatar: "https://chanelmuslim.com/wp-content/uploads/2022/09/WhatsApp-Image-2022-09-01-at-12.36.32.jpg"
+        },
+        { 
+            name: "Sella Andini", 
+            location: "Jakarta", 
+            avatar: "https://akcdn.detik.net.id/visual/2020/02/17/ed49bc49-f454-4a0d-bf23-73fcaf8272b7_11.jpeg?w=480&q=90"
+        },
+        { 
+            name: "Naya N", 
+            location: "Sumedang", 
+            avatar: "https://timesindonesia.co.id/_next/image?url=https%3A%2F%2Fcdn-1.timesmedia.co.id%2Fimages%2F2025%2F12%2F02%2FuNewsIMG-13692ea00f989a4_1764663311.jpg&w=3840&q=70"
+        },
+        { 
+            name: "Mama Billa", 
+            location: "Semarang", 
+            avatar: "https://akcdn.detik.net.id/visual/2022/04/02/lita-finalis-miss-indonesia-yang-kini-jadi-ibu-rumah-tangga_11.jpeg?w=720&q=90"
+        },
+        { 
+            name: "Kirana A", 
+            location: "Bogor", 
+            avatar: "https://i.pinimg.com/474x/61/66/98/6166981056f999d6201b292aaa12a77b.jpg"
+        }
     ];
 
-    const times = ["Baru saja", "1 menit lalu", "2 menit lalu", "3 menit lalu", "5 menit lalu"];
+    const popupTimes = ["Baru saja", "1 menit lalu", "2 menit lalu", "5 menit lalu"];
 
     const popupEl   = document.getElementById("sales-popup");
     const nameEl    = document.getElementById("popup-name");
@@ -507,24 +546,14 @@
     const avatarEl  = document.getElementById("popup-avatar");
     const closeEl   = document.getElementById("popup-close");
 
-    function getInitials(name){
-        return name
-            .split(" ")
-            .filter(Boolean)
-            .map(part => part[0])
-            .join("")
-            .slice(0,2)
-            .toUpperCase();
-    }
-
     function showSalesPopup() {
-        const buyer = buyers[Math.floor(Math.random() * buyers.length)];
-        const time  = times[Math.floor(Math.random() * times.length)];
+        const buyer = popupBuyers[Math.floor(Math.random() * popupBuyers.length)];
+        const time  = popupTimes[Math.floor(Math.random() * popupTimes.length)];
 
-        nameEl.textContent   = buyer.name;
-        locEl.textContent    = buyer.location;
-        timeEl.textContent   = time;
-        avatarEl.textContent = getInitials(buyer.name);
+        nameEl.textContent  = buyer.name;
+        locEl.textContent   = buyer.location;
+        timeEl.textContent  = time;
+        avatarEl.src        = buyer.avatar;
 
         popupEl.style.display = "block";
         popupEl.classList.remove("popup-exit");
@@ -547,10 +576,9 @@
         }, 350);
     });
 
+    // pertama muncul setelah 4 detik, lalu tiap 12 detik
     setTimeout(showSalesPopup, 4000);
-    setInterval(() => {
-        showSalesPopup();
-    }, Math.floor(Math.random() * (25000 - 12000 + 1)) + 12000);
+    setInterval(showSalesPopup, 12000);
 </script>
 
 </body>
