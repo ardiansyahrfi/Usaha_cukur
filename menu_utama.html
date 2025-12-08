@@ -59,7 +59,6 @@
 
         .text-center { text-align: center; }
         .text-primary { color: var(--primary); }
-        .bg-highlight { background-color: #fef3c7; color: #92400e; padding: 2px 8px; border-radius: 4px; font-weight: bold; }
 
         section {
             padding: 35px 25px;
@@ -96,186 +95,6 @@
             flex-shrink: 0;
             margin-top: 2px;
         }
-
-        /* PRICING */
-        .pricing-section { 
-            background-color: #ffffff;
-        }
-
-        .pricing-card {
-            background: #fff;
-            border: 1px solid #e2e8f0;
-            border-radius: 16px;
-            padding: 24px;
-            text-align: center;
-            position: relative;
-            margin-bottom: 25px;
-            transition: transform 0.2s;
-        }
-
-        .pricing-card.featured {
-            border: 2px solid var(--primary);
-            background: #ffffff;
-            transform: scale(1.02);
-            box-shadow: 0 15px 30px -10px rgba(79, 70, 229, 0.2);
-            z-index: 10;
-        }
-
-        .tag-laris {
-            position: absolute;
-            top: -12px;
-            left: 50%;
-            transform:translateX(-50%); 
-            background: var(--accent);
-            color: white;
-            font-size: 12px;
-            font-weight: 800;
-            padding: 6px 16px;
-            border-radius: 20px;
-            text-transform: uppercase;
-            box-shadow: 0 4px 6px rgba(245, 158, 11, 0.3);
-            white-space: nowrap;
-            animation: tag-shake 3s infinite ease-in-out;
-            transform-origin: center center;
-        }
-
-        @keyframes tag-shake {
-            0% { transform: translateX(-50%) scale(1) rotate(0deg); }
-            5% { transform: translateX(-50%) scale(1.1) rotate(-3deg); }
-            10% { transform: translateX(-50%) scale(1.1) rotate(3deg); }
-            15% { transform: translateX(-50%) scale(1.1) rotate(-3deg); }
-            20% { transform: translateX(-50%) scale(1.1) rotate(3deg); }
-            25% { transform: translateX(-50%) scale(1) rotate(0deg); }
-            100% { transform: translateX(-50%) scale(1) rotate(0deg); }
-        }
-
-        .price-strike {
-            text-decoration: line-through;
-            color: #94a3b8;
-            font-size: 14px;
-            margin-bottom: 4px;
-        }
-
-        .price-core {
-            font-size: 36px;
-            font-weight: 900;
-            color: #1e293b;
-            margin-bottom: 15px;
-            letter-spacing: -1px;
-        }
-
-        .pricing-features {
-            list-style: none;
-            text-align: left;
-            margin: 20px 0;
-            padding: 0;
-            font-size: 15px;
-            color: #475569;
-        }
-
-        .pricing-features li {
-            margin-bottom: 12px;
-            display: flex;
-            gap: 12px;
-            align-items: flex-start;
-        }
-
-        .pricing-features li i {
-            color: var(--primary);
-            margin-top: 4px;
-            font-size: 18px;
-            flex-shrink: 0;
-            width: 20px;
-            text-align: center;
-        }
-
-        .feature-text {
-            flex: 1;
-            word-wrap: break-word;
-            min-width: 0;
-        }
-
-        .bonus-item {
-            background: #e0e7ff;
-            padding: 12px;
-            border-radius: 8px;
-            border: 1px solid #c7d2fe;
-            margin-bottom: 10px;
-        }
-
-        .bonus-item i {
-            color: #4338ca;
-        }
-
-        /* BUTTONS */
-        .btn {
-            display: block;
-            width: 100%;
-            padding: 18px;
-            border-radius: 12px;
-            font-weight: 800;
-            text-align: center;
-            font-size: 16px;
-            transition: all 0.2s;
-            position: relative;
-            overflow: hidden;
-            border: none;
-            cursor: pointer;
-        }
-
-        .btn-primary {
-            background-color: var(--primary);
-            color: #ffffff !important;
-            box-shadow: 0 6px 0 var(--primary-dark);
-        }
-
-        .btn-primary::after {
-            content: "";
-            position: absolute;
-            top: 0; left: -100%; width: 100%; height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-            animation: shimmer 2.5s infinite;
-        }
-
-        @keyframes shimmer {
-            0% { left: -100%; }
-            50% { left: 100%; }
-            100% { left: 100%; }
-        }
-
-        .btn-primary:hover { 
-            background-color: #4338ca; 
-            transform: translateY(-2px);
-        }
-        .btn-primary:active { 
-            transform: translateY(4px); 
-            box-shadow: 0 2px 0 var(--primary-dark);
-        }
-
-        .btn-outline {
-            background-color: white;
-            color: #334155 !important;
-            border: 2px solid #cbd5e1;
-            box-shadow: 0 4px 0 #94a3b8;
-        }
-        .btn-outline:hover { 
-            border-color: var(--primary); 
-            color: var(--primary) !important;
-        }
-        .btn-outline:active {
-            transform: translateY(4px);
-            box-shadow: none;
-        }
-
-        .animate-pulse { animation: pulse 2s infinite; }
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: .6; }
-        }
-
-        .text-muted { color: #94a3b8; }
-        .text-strike-muted { text-decoration: line-through; color: #94a3b8; font-size: 13px; }
-        #cara-pesan { min-height: 20px; }
 
         /* WRAP PRICING */
         .wrap{width:100%;max-width:480px;margin:0 auto 40px;}
@@ -320,22 +139,48 @@
         ul.features li{display:flex;align-items:center;gap:10px;margin-bottom:12px;font-weight:600;color:#10203a;font-size:14px}
         ul.features li i{font-size:18px;color:var(--icon-color);width:20px;text-align:center;flex-shrink:0}
 
-        .cta{display:flex;gap:12px;flex-wrap:wrap}
-        .btn-pricing{
-          display:inline-flex;align-items:center;justify-content:center;gap:8px;
-          padding:16px 20px;border-radius:14px;border:0;cursor:pointer;font-weight:800;transition:0.2s;
-          background:linear-gradient(90deg,var(--accent-start),var(--accent-end));color:#fff;
-          box-shadow:0 6px 0 var(--btn-shadow);text-decoration:none;font-size:15px;flex:1;min-height:50px
-        }
-        .btn-pricing:active{transform:translateY(3px);box-shadow:0 3px 0 var(--btn-shadow)}
-
         .note{font-size:12px;color:var(--muted);margin-top:14px;text-align:center}
         .best{outline:3px solid rgba(75,78,252,0.08)}
 
-        /* SALES POPUP */
+        .cta{
+            display:flex;
+            justify-content:center;
+            margin-top:16px;
+        }
+
+        /* BUTTON GAYA BARU */
+        .btn-pricing{
+          display:inline-flex;
+          align-items:center;
+          justify-content:center;
+          gap:8px;
+          padding:18px 28px;
+          border-radius:20px;
+          border:none;
+          cursor:pointer;
+          font-weight:800;
+          text-transform:uppercase;
+          letter-spacing:.02em;
+          background:linear-gradient(180deg,var(--accent-start),var(--accent-end));
+          color:#ffffff;
+          box-shadow:0 7px 0 var(--btn-shadow);
+          text-decoration:none;
+          font-size:14px;
+          min-height:56px;
+          width:100%;
+          max-width:240px;
+          transition:transform .15s ease, box-shadow .15s ease;
+        }
+        .btn-pricing span{font-size:18px;line-height:1;}
+        .btn-pricing:active{
+          transform:translateY(3px);
+          box-shadow:0 4px 0 var(--btn-shadow);
+        }
+
+        /* SALES POPUP – KANAN BAWAH, TANPA BADGE CEKLIS */
         #sales-popup{
             position:fixed;
-            top:18px;
+            bottom:18px;
             right:18px;
             z-index:9999;
             display:none;
@@ -360,32 +205,30 @@
             overflow:hidden;
             flex-shrink:0;
         }
-        .sales-avatar{
+        .sales-avatar-initial{
             width:100%;
             height:100%;
-            object-fit:cover;
-        }
-        .sales-badge{
-            position:absolute;
-            bottom:-2px;
-            right:-2px;
-            background:#22c55e;
-            color:#ffffff;
-            border-radius:999px;
-            border:2px solid #ffffff;
-            width:14px;
-            height:14px;
             display:flex;
             align-items:center;
             justify-content:center;
-            font-size:9px;
+            font-weight:800;
+            font-size:13px;
+            color:#ffffff;
+            background:linear-gradient(135deg,#4f46e5,#6366f1);
         }
         .sales-text-main{font-weight:700;color:#0f172a;line-height:1.2;}
         .sales-location{color:#64748b;font-size:11px;}
-        .sales-pill-row{display:flex;align-items:center;gap:6px;margin-top:3px;}
-        .sales-pill{background:#eef2ff;color:#4f46e5;padding:2px 8px;border-radius:999px;font-size:10px;font-weight:700;}
+        .sales-pill-row{display:flex;align-items:center;gap:6px;margin-top:4px;}
+        .sales-pill,
+        .sales-time{
+          font-size:10px;
+          line-height:1;
+          display:flex;
+          align-items:center;
+        }
+        .sales-pill{background:#eef2ff;color:#4f46e5;padding:3px 8px;border-radius:999px;font-weight:700;}
         .sales-dot{width:3px;height:3px;border-radius:999px;background:#cbd5f5;}
-        .sales-time{font-size:10px;color:#9ca3af;}
+        .sales-time{color:#9ca3af;}
         .sales-close{margin-left:6px;cursor:pointer;color:#cbd5e1;font-size:11px;}
         .sales-close:hover{color:#94a3b8;}
         @keyframes popup-in{from{opacity:0;transform:translateY(12px);}to{opacity:1;transform:translateY(0);}}
@@ -403,7 +246,7 @@
           .card{padding:20px}
           .pkgname{font-size:16px}
           .price{font-size:24px}
-          .btn-pricing{padding:12px 14px;font-size:13px;min-height:42px}
+          .btn-pricing{padding:14px 20px;font-size:13px;min-height:48px}
           ul.features li{font-size:12px;margin-bottom:8px}
           .subtitle{font-size:12px}
         }
@@ -427,7 +270,7 @@
 
         <hr style="border:none; height:2px; background:#e2e8f0; width:50%; margin:25px auto;">
         
-        <p style="font-size:13px; color:#b91c1c; font-weight:700; text-align:center;" class="animate-pulse">
+        <p style="font-size:13px; color:#b91c1c; font-weight:700; text-align:center;">
             🔥 E-Book Panduan Barbershop Rumahan. Sisa Kuota Promo: 7 Orang Hari Ini.
         </p>
     </section>
@@ -582,7 +425,9 @@
             </ul>
 
             <div class="cta">
-              <button class="btn-pricing">AMBIL PROMO INI SEKARANG 👉</button>
+              <a href="#order-section" class="btn-pricing">
+                AMBIL PROMO INI SEKARANG <span>👉</span>
+              </a>
             </div>
 
             <div class="note">*Garansi uang kembali 7 hari jika tidak puas</div>
@@ -605,15 +450,22 @@
             </ul>
 
             <div class="cta">
-              <button class="btn-pricing">Download E-Book Saja</button>
+              <a href="#order-section" class="btn-pricing">
+                AMBIL PROMO INI SEKARANG <span>👉</span>
+              </a>
             </div>
 
             <div class="note">Termasuk file PDF E-Book. Tidak termasuk bonus.</div>
           </section>
         </main>
-
-        <div id="cara-pesan"></div>
     </div>
+
+    <!-- Target scroll – nanti bisa kamu ganti jadi form/WA section -->
+    <section id="order-section" style="padding:40px 25px 10px; border-top:1px solid #f1f5f9;">
+      <p style="text-align:center; font-size:14px; color:#64748b;">
+      
+      </p>
+    </section>
 
 </div>
 
@@ -621,10 +473,7 @@
 <div id="sales-popup">
     <div class="sales-card">
         <div class="sales-avatar-wrap">
-            <img id="popup-avatar" src="" alt="buyer" class="sales-avatar">
-            <div class="sales-badge">
-                <i class="fas fa-check"></i>
-            </div>
+            <div id="popup-avatar" class="sales-avatar-initial">MR</div>
         </div>
         <div>
             <div class="sales-text-main" id="popup-name">Mama Rina</div>
@@ -641,12 +490,12 @@
 
 <script>
     const buyers = [
-        { name: "Mama Rina",   location: "Semarang",       photo: "https://i.pravatar.cc/80?u=rina" },
-        { name: "Bang Fajar",  location: "Jakarta Timur",  photo: "https://i.pravatar.cc/80?u=fajar" },
-        { name: "Mas Doni",    location: "Surabaya",       photo: "https://i.pravatar.cc/80?u=doni" },
-        { name: "Kak Raka",    location: "Bandung",        photo: "https://i.pravatar.cc/80?u=raka" },
-        { name: "Pak Andi",    location: "Depok",          photo: "https://i.pravatar.cc/80?u=andi" },
-        { name: "Mas Yoga",    location: "Yogyakarta",     photo: "https://i.pravatar.cc/80?u=yoga" }
+        { name: "Mama Rina",   location: "Semarang" },
+        { name: "Bang Fajar",  location: "Jakarta Timur" },
+        { name: "Mas Doni",    location: "Surabaya" },
+        { name: "Kak Raka",    location: "Bandung" },
+        { name: "Pak Andi",    location: "Depok" },
+        { name: "Mas Yoga",    location: "Yogyakarta" }
     ];
 
     const times = ["Baru saja", "1 menit lalu", "2 menit lalu", "3 menit lalu", "5 menit lalu"];
@@ -658,6 +507,16 @@
     const avatarEl  = document.getElementById("popup-avatar");
     const closeEl   = document.getElementById("popup-close");
 
+    function getInitials(name){
+        return name
+            .split(" ")
+            .filter(Boolean)
+            .map(part => part[0])
+            .join("")
+            .slice(0,2)
+            .toUpperCase();
+    }
+
     function showSalesPopup() {
         const buyer = buyers[Math.floor(Math.random() * buyers.length)];
         const time  = times[Math.floor(Math.random() * times.length)];
@@ -665,7 +524,7 @@
         nameEl.textContent   = buyer.name;
         locEl.textContent    = buyer.location;
         timeEl.textContent   = time;
-        avatarEl.src         = buyer.photo;
+        avatarEl.textContent = getInitials(buyer.name);
 
         popupEl.style.display = "block";
         popupEl.classList.remove("popup-exit");

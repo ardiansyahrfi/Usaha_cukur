@@ -80,10 +80,10 @@
     }
     .open .icon{transform:rotate(45deg);}
 
-    /* POPUP */
+    /* POPUP (versi baru: kanan bawah, avatar inisial, tanpa ceklis) */
     #sales-popup{
       position:fixed;
-      top:18px;
+      bottom:18px;
       right:18px;
       z-index:9999;
       display:none;
@@ -108,25 +108,16 @@
       overflow:hidden;
       flex-shrink:0;
     }
-    .sales-avatar{
+    .sales-avatar-initial{
       width:100%;
       height:100%;
-      object-fit:cover;
-    }
-    .sales-badge{
-      position:absolute;
-      bottom:-2px;
-      right:-2px;
-      background:#22c55e;
-      color:#ffffff;
-      border-radius:999px;
-      border:2px solid #ffffff;
-      width:14px;
-      height:14px;
       display:flex;
       align-items:center;
       justify-content:center;
-      font-size:9px;
+      font-weight:800;
+      font-size:13px;
+      color:#ffffff;
+      background:linear-gradient(135deg,#4f46e5,#6366f1);
     }
     .sales-text-main{font-weight:700;color:#0f172a;line-height:1.2;}
     .sales-location{color:#64748b;font-size:11px;}
@@ -230,13 +221,13 @@
         Karena promo & bonus terbatas hanya untuk pembeli tercepat. Kalau kuota habis, harga kembali normal.
       </div>
     </div>
+  </div>
 
-  <!-- POPUP PEMBELI -->
+  <!-- POPUP PEMBELI (versi baru) -->
   <div id="sales-popup">
     <div class="sales-card">
       <div class="sales-avatar-wrap">
-        <img id="popup-avatar" src="" alt="buyer" class="sales-avatar">
-        <div class="sales-badge">✓</div>
+        <div id="popup-avatar" class="sales-avatar-initial">MR</div>
       </div>
       <div>
         <div class="sales-text-main" id="popup-name">Mama Rina</div>
@@ -255,12 +246,12 @@
     function toggleFaq(el){ el.classList.toggle('open'); }
 
     const buyers = [
-      { name: "Mama Rina", location: "Semarang",      photo: "https://i.pravatar.cc/80?u=rina"  },
-      { name: "Bang Fajar",location: "Jakarta Timur", photo: "https://i.pravatar.cc/80?u=fajar" },
-      { name: "Mas Doni",  location: "Surabaya",      photo: "https://i.pravatar.cc/80?u=doni"  },
-      { name: "Kak Raka",  location: "Bandung",       photo: "https://i.pravatar.cc/80?u=raka"  },
-      { name: "Pak Andi",  location: "Depok",         photo: "https://i.pravatar.cc/80?u=andi"  },
-      { name: "Mas Yoga",  location: "Yogyakarta",    photo: "https://i.pravatar.cc/80?u=yoga"  }
+      { name: "Mama Rina", location: "Semarang" },
+      { name: "Bang Fajar",location: "Jakarta Timur" },
+      { name: "Mas Doni",  location: "Surabaya" },
+      { name: "Kak Raka",  location: "Bandung" },
+      { name: "Pak Andi",  location: "Depok" },
+      { name: "Mas Yoga",  location: "Yogyakarta" }
     ];
     const times = ["Baru saja", "1 menit lalu", "2 menit lalu", "3 menit lalu", "5 menit lalu"];
 
@@ -271,6 +262,16 @@
     const avatarEl = document.getElementById("popup-avatar");
     const closeEl  = document.getElementById("popup-close");
 
+    function getInitials(name){
+      return name
+        .split(" ")
+        .filter(Boolean)
+        .map(part => part[0])
+        .join("")
+        .slice(0,2)
+        .toUpperCase();
+    }
+
     function showSalesPopup(){
       const buyer = buyers[Math.floor(Math.random()*buyers.length)];
       const time  = times[Math.floor(Math.random()*times.length)];
@@ -278,7 +279,7 @@
       nameEl.textContent  = buyer.name;
       locEl.textContent   = buyer.location;
       timeEl.textContent  = time;
-      avatarEl.src        = buyer.photo;
+      avatarEl.textContent = getInitials(buyer.name);
 
       popupEl.style.display = "block";
       popupEl.classList.remove("popup-exit");
