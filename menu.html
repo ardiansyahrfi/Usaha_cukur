@@ -383,6 +383,101 @@
         .popup-exit {
             animation: popup-out 0.35s ease-in forwards;
         }
+        
+         :root{
+      --bg:#f6f8ff;
+      --card:#ffffff;
+      --border:#c9d4ff;
+      --title:#4c4ff5;
+      --subtitle:#7f82a4;
+      --price:#2b2cdf;
+      --muted:#999;
+      --accent-start:#4b4efc;
+      --accent-end:#6a40ff;
+      --badge-start:#ffb700;
+      --badge-end:#ff8800;
+      --bonus-bg:#e8edff;
+      --icon-color:#4c4ff5;
+      --btn-shadow:#3522c2;
+    }
+    
+    *{box-sizing:border-box;font-family:"Poppins",system-ui,-apple-system,Segoe UI,Roboto,'Helvetica Neue',Arial}
+    body{
+      margin:0;min-height:100vh;background:var(--bg);color:#10203a;padding:20px;display:flex;align-items:center;justify-content:center;
+    }
+    
+    .wrap{width:100%;max-width:480px;}
+    
+    header{text-align:center;margin-bottom:32px}
+    h1{font-size:24px;margin:0 0 8px;color:var(--title);font-weight:800}
+    p.lead{margin:0;color:var(--subtitle);font-size:15px;line-height:1.5}
+    
+    .grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:24px}
+    
+    .card{
+      background:var(--card);
+      border:3px solid var(--border);
+      padding:28px;
+      border-radius:20px;
+      position:relative;overflow:visible;
+      box-shadow:0 6px 16px rgba(88,98,255,0.15);
+    }
+    
+    .badge{
+      position:absolute;
+      top:-18px;
+      left:50%;
+      transform:translateX(-50%);
+      background:linear-gradient(90deg,var(--badge-start),var(--badge-end));
+      color:#fff;
+      padding:8px 24px;
+      border-radius:50px;
+      font-weight:700;
+      font-size:13px;
+      box-shadow:0 4px 12px rgba(255,136,0,0.25);
+      white-space:nowrap;
+      z-index:10;
+    }
+
+    .title{display:flex;align-items:center;justify-content:center;gap:8px;margin-bottom:6px;margin-top:32px}
+    .pkgname{font-weight:800;font-size:20px;text-align:center;color:var(--title)}
+    .subtitle{text-align:center;color:var(--subtitle);font-size:14px;margin-top:-4px;margin-bottom:14px}
+    
+    .price-old{text-align:center;text-decoration:line-through;color:#b2b2b2;margin:8px 0;font-size:15px}
+    .price{text-align:center;font-size:32px;font-weight:800;margin:8px 0 20px;color:var(--price)}
+    
+    ul.features{list-style:none;padding:0;margin:0 0 20px}
+    ul.features li{display:flex;align-items:center;gap:10px;margin-bottom:12px;font-weight:600;color:#10203a;font-size:14px}
+    ul.features li i{font-size:18px;color:var(--icon-color);width:20px;text-align:center;flex-shrink:0}
+    
+    .cta{display:flex;gap:12px;flex-wrap:wrap}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:16px 20px;border-radius:14px;border:0;cursor:pointer;font-weight:800;transition:0.2s;
+      background:linear-gradient(90deg,var(--accent-start),var(--accent-end));color:#fff;box-shadow:0 6px 0 var(--btn-shadow);text-decoration:none;font-size:15px;flex:1;min-height:50px
+    }
+    .btn:active{transform:translateY(3px);box-shadow:0 3px 0 var(--btn-shadow)}
+    .btn.secondary{background:transparent;color:var(--title);border:2px solid var(--border);box-shadow:none;font-weight:700}
+    .btn.secondary:active{transform:translateY(0)}
+    
+    .note{font-size:12px;color:var(--muted);margin-top:14px;text-align:center}
+    
+    .best{outline:3px solid rgba(75,78,252,0.08)}
+    
+    @media (max-width:640px){
+      body{padding:16px}
+      .wrap{max-width:100%}
+      header{margin-bottom:24px}
+      h1{font-size:22px}
+      p.lead{font-size:14px}
+      .grid{grid-template-columns:1fr;gap:16px}
+      .card{padding:20px}
+      .pkgname{font-size:16px}
+      .price{font-size:24px}
+      .btn{padding:12px 14px;font-size:13px;min-height:42px}
+      ul.features li{font-size:12px;margin-bottom:8px}
+      .subtitle{font-size:12px}
+    }
+        
     </style>
 </head>
 <body>
@@ -507,90 +602,63 @@
         </ul>
     </section>
 
-    <!-- PRICING PACKAGES -->
-    <section class="pricing-section">
-        <h2 style="font-size:24px; font-weight:800; margin-bottom:10px; color:#1e293b; text-align: center;">
-            Investasi Kecil, Mesin Cukur Jalan Terus!
-        </h2>
-        <p class="text-center" style="margin-bottom:30px; color:#64748b; font-size: 14px;">
-            Pilih paket yang paling sesuai dengan target penghasilan dan seriusnya kamu ingin memulai usaha cukur.
-        </p>
+     <div class="wrap">
+    <header>
+      <h1>Bangun Usaha Cukur Tanpa Ribet!</h1>
+      <p class="lead"> Pilih paket yang paling sesuai dengan rencana dan target pendapatanmu.</p>
+    </header>
 
-        <!-- PAKET LENGKAP (FEATURED) -->
-        <div class="pricing-card featured">
-            <div class="tag-laris">PALING LARIS 🔥</div>
-            <h3 style="color:var(--primary); font-weight:800; font-size: 20px;">PAKET LENGKAP</h3>
-            <p style="font-size:12px; color:#64748b; margin-bottom: 15px;">Siap Jadi Tukang Cukur Rumahan Profesional</p>
-            
-            <div class="price-strike">Rp 250.000</div>
-            <div class="price-core">Rp 99.000</div>
-            
-            <ul class="pricing-features">
-                <li>
-                    <i class="fas fa-book"></i> 
-                    <div class="feature-text"><strong>E-Book Utama "Barbershop Rumahan 7 Hari Jalan"</strong></div>
-                </li>
-                <li>
-                    <i class="fas fa-calculator"></i> 
-                    <div class="feature-text"><strong>BONUS:</strong> Excel Kalkulator Tarif Cukur (Anti Rugi)</div>
-                </li>
-                
-                <li class="bonus-item">
-                    <i class="fab fa-whatsapp"></i> 
-                    <div class="feature-text"><strong>BONUS:</strong> Template Chat & Status WA untuk Jasa Cukur</div>
-                </li>
-                <li class="bonus-item">
-                    <i class="fab fa-instagram"></i> 
-                    <div class="feature-text"><strong>BONUS:</strong> 30 Ide Konten IG Before–After Cukuran</div>
-                </li>
-                <li class="bonus-item">
-                    <i class="fas fa-smile-wink"></i> 
-                    <div class="feature-text"><strong>BONUS:</strong> Panduan Hadapi Pelanggan Rewel tapi Tetap Santai</div>
-                </li>
-            </ul>
+    <main class="grid">
+      <section class="card best" id="paket-full">
+        <div class="badge">PALING LARIS 🔥</div>
+        <div class="title">
+          <div class="pkgname">PAKET LENGKAP</div>
+        </div>
+        <p class="subtitle">Siap Jadi Tukang Cukur Rumahan Profesional</p>
 
-            <a href="#cara-pesan" class="btn btn-primary">
-                AMBIL PROMO INI SEKARANG 👉
-            </a>
-            <p style="font-size:11px; color:#94a3b8; margin-top:12px;">*Garansi uang kembali 7 hari jika merasa tidak cocok</p>
+        <p class="price-old">Rp 250.000</p>
+        <p class="price">Rp 99.000</p>
+
+        <ul class="features">
+          <li><i class="fa-solid fa-book"></i> E-Book Utama Premium</li>
+          <li><i class="fa-solid fa-file-excel"></i> BONUS: Template Harga Barbershop biar usaha terlihat profesional dari hari pertama</li>
+          <li><i class="fa-brands fa-whatsapp"></i> BONUS: Script Chat WA untuk cepat closing</li>
+          <li><i class="fa-solid fa-clipboard-check"></i> BONUS: Checklist Peralatan Modal Minim agar belanja lebih hemat dan tepat</li>
+          <li><i class="fa-solid fa-star"></i> BONUS: Panduan Mulai Usaha Hari Pertama</li>
+        </ul>
+
+        <div class="cta">
+          <button class="btn">AMBIL PROMO INI SEKARANG 👉</button>
         </div>
 
-        <!-- PAKET BIASA -->
-        <div class="pricing-card">
-            <h3 style="color:#334155; font-weight:800; font-size: 18px;">PAKET BIASA</h3>
-            <p style="font-size:12px; color:#64748b; margin-bottom: 15px;">Hanya Butuh Ilmunya Saja</p>
-            
-            <div class="price-strike">Rp 150.000</div>
-            <div class="price-core">Rp 70.000</div>
-            
-            <ul class="pricing-features">
-                <li>
-                    <i class="fas fa-book"></i> 
-                    <div class="feature-text">E-Book Utama "Barbershop Rumahan 7 Hari Jalan"</div>
-                </li>
-                <li class="text-muted">
-                    <i class="fas fa-times text-muted"></i> 
-                    <div class="feature-text text-strike-muted">Tanpa Template Chat & Status WA</div>
-                </li>
-                <li class="text-muted">
-                    <i class="fas fa-times text-muted"></i> 
-                    <div class="feature-text text-strike-muted">Tanpa Ide Konten IG</div>
-                </li>
-                <li class="text-muted">
-                    <i class="fas fa-times text-muted"></i> 
-                    <div class="feature-text text-strike-muted">Tanpa Panduan Pelanggan Rewel</div>
-                </li>
-            </ul>
+        <div class="note">*Garansi uang kembali 7 hari jika tidak puas</div>
+      </section>
 
-            <a href="#cara-pesan" class="btn btn-outline">
-                Download E-Book Saja
-            </a>
+      <section class="card" id="paket-basic">
+        <div class="badge" style="background:linear-gradient(90deg,#d0d4e8,#e0e4f0);color:var(--subtitle)">PAKET BIASA</div>
+        <div class="title">
+          <div class="pkgname">PAKET BIASA</div>
         </div>
-    </section>
+        <p class="subtitle">Hanya Butuh Ilmunya Saja</p>
 
-    <div id="cara-pesan"></div>
+        <p class="price-old">Rp 150.000</p>
+        <p class="price">Rp 70.000</p>
 
-</div>
+        <ul class="features">
+          <li><i class="fa-solid fa-book"></i> E-Book Utama Premium</li>
+          <li><i class="fa-solid fa-x"></i> Tanpa Template Harga Barbershop</li>
+          <li><i class="fa-solid fa-x"></i> Tanpa Script Chat WA</li>
+          <li><i class="fa-solid fa-x"></i> Tanpa Checklist Peralatan</li>
+        </ul>
+
+        <div class="cta">
+          <button class="btn">Download E-Book Saja</button>
+        </div>
+
+        <div class="note">Termasuk file PDF E-Book. Tidak termasuk bonus.</div>
+      </section>
+    </main>
+  </div>
 
 <!-- SALES POPUP KECIL -->
 <div id="sales-popup">
