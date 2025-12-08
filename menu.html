@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cara Mulai Usaha Cukur Rambut yang Menghasilkan dalam 7 Hari!</title>
+    <!-- Font Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- Font Awesome untuk Icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/aja   x/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        /* --- RESET & BASE --- */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            line-height: 1.6;
+            color: #374151; /* Abu gelap yang nyaman */
+            background-color: #ffffff;
+        }
+
+        /* Global Link Reset */
+        a { text-decoration: none !important; }
+
+        /* Container Utama */
+        .container {
+            max-width: 650px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+            padding-bottom: 60px;
+            min-height: 100vh;
+        }
+
+        /* --- COLORS & UTILITIES --- */
+        :root {
+            --primary: #4f46e5; /* Indigo */
+            --primary-dark: #3730a3;
+            --accent: #f59e0b; /* Amber */
+            --danger: #dc2626; /* Merah */
+            --bg-soft: #ffffff;
+        }
+
+        .text-center { text-align: center; }
+        .text-primary { color: var(--primary); }
+        .bg-highlight { background-color: #fef3c7; color: #92400e; padding: 2px 8px; border-radius: 4px; font-weight: bold; }
+
+        section {
+            padding: 35px 25px;
+            border-bottom: 1px solid #f1f5f9;
+        }
+
+        /* --- LIST STYLING (Checklist) --- */
+        ul.check-list {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        ul.check-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            background: #ffffff;
+            padding: 18px;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+            transition: transform 0.2s;
+        }
+        
+        ul.check-list li:hover {
+            transform: translateY(-2px);
+            border-color: #cbd5e1;
+        }
+
+        ul.check-list li span.icon {
+            font-size: 22px;
+            flex-shrink: 0; /* Agar icon tidak mengecil/gepeng */
+            margin-top: 2px;
+        }
+
+        /* --- PRICING CARD STYLING --- */
+        .pricing-section { 
+            background-color: #ffffff;
+        }
+
+        .pricing-card {
+            background: #fff;
+            border: 1px solid #e2e8f0;
+            border-radius: 16px;
+            padding: 24px;
+            text-align: center;
+            position: relative;
+            margin-bottom: 25px;
+            transition: transform 0.2s;
+        }
+
+        .pricing-card.featured {
+            border: 2px solid var(--primary);
+            background: #ffffff;
+            transform: scale(1.02);
+            box-shadow: 0 15px 30px -10px rgba(79, 70, 229, 0.2);
+            z-index: 10;
+        }
+
+        /* --- ANIMASI TAG LARIS --- */
+        .tag-laris {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            background: var(--accent);
+            color: white;
+            font-size: 12px;
+            font-weight: 800;
+            padding: 6px 16px;
+            border-radius: 20px;
+            text-transform: uppercase;
+            box-shadow: 0 4px 6px rgba(245, 158, 11, 0.3);
+            white-space: nowrap;
+            animation: tag-shake 3s infinite ease-in-out;
+            transform-origin: center center;
+        }
+
+        @keyframes tag-shake {
+            0% { transform: translateX(-50%) scale(1) rotate(0deg); }
+            5% { transform: translateX(-50%) scale(1.1) rotate(-3deg); }
+            10% { transform: translateX(-50%) scale(1.1) rotate(3deg); }
+            15% { transform: translateX(-50%) scale(1.1) rotate(-3deg); }
+            20% { transform: translateX(-50%) scale(1.1) rotate(3deg); }
+            25% { transform: translateX(-50%) scale(1) rotate(0deg); }
+            100% { transform: translateX(-50%) scale(1) rotate(0deg); }
+        }
+
+        .price-strike {
+            text-decoration: line-through;
+            color: #94a3b8;
+            font-size: 14px;
+            margin-bottom: 4px;
+        }
+
+        .price-core {
+            font-size: 36px;
+            font-weight: 900;
+            color: #1e293b;
+            margin-bottom: 15px;
+            letter-spacing: -1px;
+        }
+
+        .pricing-features {
+            list-style: none;
+            text-align: left;
+            margin: 20px 0;
+            padding: 0;
+            font-size: 15px;
+            color: #475569;
+        }
+
+        .pricing-features li {
+            margin-bottom: 12px;
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+        }
+
+        .pricing-features li i {
+            color: var(--primary);
+            margin-top: 4px;
+            font-size: 18px;
+            flex-shrink: 0;
+            width: 20px;
+            text-align: center;
+        }
+
+        .feature-text {
+            flex: 1;
+            word-wrap: break-word;
+            min-width: 0;
+        }
+
+        .bonus-item {
+            background: #e0e7ff;
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px solid #c7d2fe;
+            margin-bottom: 10px;
+        }
+
+        .bonus-item i {
+            color: #4338ca;
+        }
+
+        /* --- BUTTONS --- */
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 18px;
+            border-radius: 12px;
+            font-weight: 800;
+            text-align: center;
+            font-size: 16px;
+            transition: all 0.2s;
+            position: relative;
+            overflow: hidden;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: #ffffff !important;
+            box-shadow: 0 6px 0 var(--primary-dark);
+        }
+
+        .btn-primary::after {
+            content: "";
+            position: absolute;
+            top: 0; left: -100%; width: 100%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            animation: shimmer 2.5s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { left: -100%; }
+            50% { left: 100%; }
+            100% { left: 100%; }
+        }
+
+        .btn-primary:hover { 
+            background-color: #4338ca; 
+            transform: translateY(-2px);
+        }
+        
+        .btn-primary:active { 
+            transform: translateY(4px); 
+            box-shadow: 0 2px 0 var(--primary-dark);
+        }
+
+        .btn-outline {
+            background-color: white;
+            color: #334155 !important;
+            border: 2px solid #cbd5e1;
+            box-shadow: 0 4px 0 #94a3b8;
+        }
+        
+        .btn-outline:hover { 
+            border-color: var(--primary); 
+            color: var(--primary) !important;
+        }
+        
+        .btn-outline:active {
+            transform: translateY(4px);
+            box-shadow: none;
+        }
+
+        .animate-pulse { animation: pulse 2s infinite; }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: .6; }
+        }
+
+        .text-muted { color: #94a3b8; }
+        .text-strike-muted { text-decoration: line-through; color: #94a3b8; font-size: 13px; }
+        
+        #cara-pesan { min-height: 20px; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <!-- HERO SECTION -->
+    <section style="background: #ffffff; padding-top: 45px;">
+        <h1 style="font-size:26px; font-weight:900; line-height:1.4; color:#1e293b; margin-bottom:15px;" class="text-center">
+            💈 Cara Mulai Usaha Cukur Rambut <br>
+            yang Menghasilkan dalam 
+            <span class="text-primary" style="background: rgba(79, 70, 229, 0.1); padding: 2px 8px; border-radius: 6px;">7 Hari!</span>
+        </h1>
+
+        <p style="font-size:16px; color:#475569; max-width:500px; margin:0 auto 20px;" class="text-center">
+            Capek lihat alat cukur cuma jadi pajangan? Saatnya ubah jadi <mark class="bg-highlight">mesin uang dari rumah</mark> 
+        </p>
+
+        <hr style="border:none; height:2px; background:#e2e8f0; width:50%; margin:25px auto;">
+        
+        <p style="font-size:13px; color:#b91c1c; font-weight:700; text-align:center;" class="animate-pulse">
+            🔥 E-Book Panduan Barbershop Rumahan. Sisa Kuota Promo: 7 Orang Hari Ini.
+        </p>
+    </section>
+
+    <!-- 5 PAIN POINTS -->
+    <section>
+        <h2 style="font-size:22px; font-weight:800; margin-bottom:25px; color:#1e293b; text-align: center;">
+            🤔 Masih Ragu Mulai Usaha Cukur? Ini 5 Penyebabnya…
+        </h2>
+
+        <ul class="check-list">
+            <li>
+                <span class="icon">💇‍♂️</span>
+                <div>
+                    <strong>Minder Takut Hasil Cukuran Jelek</strong>
+                    <div style="font-size:14px; color:#64748b;">Takut potongan nggak rapi dan bikin orang kapok datang lagi karena kamu belajar sendiri.</div>
+                </div>
+            </li>
+            <li>
+                <span class="icon">🙏</span>
+                <div>
+                    <strong>Sering Disuruh "Gratisin" Teman</strong>
+                    <div style="font-size:14px; color:#64748b;">Sudah capek berdiri lama, ujung-ujungnya dibilang “harga teman” bahkan kadang nggak dibayar.</div>
+                </div>
+            </li>
+            <li>
+                <span class="icon">📣</span>
+                <div>
+                    <strong>Gak Jago Promosi</strong>
+                    <div style="font-size:14px; color:#64748b;">Cuma pasang tulisan kecil “Jasa Cukur” di depan rumah, yang tahu cuma tetangga dekat. Sepi pelanggan...</div>
+                </div>
+            </li>
+            <li>
+                <span class="icon">😵</span>
+                <div>
+                    <strong>Bingung Mulai dari Mana</strong>
+                    <div style="font-size:14px; color:#64748b;">Punya alat cukur tapi bingung atur tempat, harga, sampai cara terima pelanggan pertama.</div>
+                </div>
+            </li>
+            <li>
+                <span class="icon">💸</span>
+                <div>
+                    <strong>Tidak Punya Patokan Tarif</strong>
+                    <div style="font-size:14px; color:#64748b;">Takut kemahalan dibilang “cukur mahal”, kemurahan malah rugi waktu, tenaga, dan listrik.</div>
+                </div>
+            </li>
+        </ul>
+
+        <div style="background-color:#fff1f2; border:1px solid #fda4af; padding:15px; margin-top:25px; border-radius:12px; text-align: center;">
+            <p style="font-size:14px; color:#be123c; font-weight:600; line-height: 1.5;">
+                ⚠️ Hati-hati! Kalau kamu tidak mulai sekarang, pelanggan di sekitar rumahmu akan lari ke tukang cukur lain yang lebih dulu berani mulai.
+            </p>
+        </div>
+    </section>
+
+    <!-- SOLUSI / BENEFIT -->
+    <section style="background-color:#ffffff;">
+        <h2 style="font-size:22px; font-weight:800; margin-bottom:10px; color:#1e293b; text-align: center;">
+            ✨ Seluruh Panduan Utama Dibahas Tuntas dalam E-Book “Barbershop Rumahan 7 Hari Jalan”
+        </h2>
+        <p class="text-center" style="margin-bottom:30px; color:#64748b; font-size: 14px;">
+            Panduan lengkap dan terarah untuk membantumu membangun usaha cukur dari dasar, dengan langkah yang jelas, praktis, dan mudah diterapkan.
+        </p>
+
+        <ul class="check-list">
+            <li style="border-left: 4px solid var(--primary);">
+                <span class="icon">🗺️</span>
+                <div>
+                    <strong>Roadmap 7 Hari Mulai Usaha</strong>
+                    <div style="font-size:14px; color:#64748b;">Langkah hari ke-1 sampai hari ke-7: dari persiapan alat, set tempat, sampai siap menerima pelanggan pertama.</div>
+                </div>
+            </li>
+            <li style="border-left: 4px solid var(--primary);">
+                <span class="icon">✂️</span>
+                <div>
+                    <strong>Teknik Cukuran Dasar yang Aman</strong>
+                    <div style="font-size:14px; color:#64748b;">Panduan potongan simpel yang bisa dipelajari pemula, tapi hasil tetap rapi dan bikin pelanggan puas.</div>
+                </div>
+            </li>
+            <li style="border-left: 4px solid var(--primary);">
+                <span class="icon">💰</span>
+                <div>
+                    <strong>Strategi Harga "Nggak Bikin Rugi"</strong>
+                    <div style="font-size:14px; color:#64748b;">Cara menentukan tarif cukur yang wajar, menguntungkan, dan tetap diterima pelanggan di lingkunganmu.</div>
+                </div>
+            </li>
+            <li style="border-left: 4px solid var(--primary);">
+                <span class="icon">📣</span>
+                <div>
+                    <strong>Template Promosi WA & Sosmed</strong>
+                    <div style="font-size:14px; color:#64748b;">Contoh kalimat promosi yang tinggal copy–paste ke WhatsApp, IG, atau status biar orang tahu kamu buka jasa cukur.</div>
+                </div>
+            </li>
+            <li style="border-left: 4px solid var(--primary);">
+                <span class="icon">🤝</span>
+                <div>
+                    <strong>Tips Biar Pelanggan Betah & Balik Lagi</strong>
+                    <div style="font-size:14px; color:#64748b;">Hal-hal kecil yang bikin orang merasa nyaman cukur di tempatmu dan jadi langganan, bahkan bawa teman.</div>
+                </div>
+            </li>
+        </ul>
+    </section>
+
+    <!-- PRICING PACKAGES -->
+    <section class="pricing-section">
+        <h2 style="font-size:24px; font-weight:800; margin-bottom:10px; color:#1e293b; text-align: center;">
+            Investasi Kecil, Mesin Cukur Jalan Terus!
+        </h2>
+        <p class="text-center" style="margin-bottom:30px; color:#64748b; font-size: 14px;">
+            Pilih paket yang paling sesuai dengan target penghasilan dan seriusnya kamu ingin memulai usaha cukur.
+        </p>
+
+        <!-- PAKET LENGKAP (FEATURED) -->
+        <div class="pricing-card featured">
+            <div class="tag-laris">PALING LARIS 🔥</div>
+            <h3 style="color:var(--primary); font-weight:800; font-size: 20px;">PAKET LENGKAP</h3>
+            <p style="font-size:12px; color:#64748b; margin-bottom: 15px;">Siap Jadi Tukang Cukur Rumahan Profesional</p>
+            
+            <div class="price-strike">Rp 250.000</div>
+            <div class="price-core">Rp 99.000</div>
+            
+            <ul class="pricing-features">
+                <li>
+                    <i class="fas fa-book"></i> 
+                    <div class="feature-text"><strong>E-Book Utama "Barbershop Rumahan 7 Hari Jalan"</strong></div>
+                </li>
+                <li>
+                    <i class="fas fa-calculator"></i> 
+                    <div class="feature-text"><strong>BONUS:</strong> Excel Kalkulator Tarif Cukur (Anti Rugi)</div>
+                </li>
+                
+                <li class="bonus-item">
+                    <i class="fab fa-whatsapp"></i> 
+                    <div class="feature-text"><strong>BONUS:</strong> Template Chat & Status WA untuk Jasa Cukur</div>
+                </li>
+                <li class="bonus-item">
+                    <i class="fab fa-instagram"></i> 
+                    <div class="feature-text"><strong>BONUS:</strong> 30 Ide Konten IG Before–After Cukuran</div>
+                </li>
+                <li class="bonus-item">
+                    <i class="fas fa-smile-wink"></i> 
+                    <div class="feature-text"><strong>BONUS:</strong> Panduan Hadapi Pelanggan Rewel tapi Tetap Santai</div>
+                </li>
+            </ul>
+
+            <a href="#cara-pesan" class="btn btn-primary">
+                AMBIL PROMO INI SEKARANG 👉
+            </a>
+            <p style="font-size:11px; color:#94a3b8; margin-top:12px;">*Garansi uang kembali 7 hari jika merasa tidak cocok</p>
+        </div>
+
+        <!-- PAKET BIASA -->
+        <div class="pricing-card">
+            <h3 style="color:#334155; font-weight:800; font-size: 18px;">PAKET BIASA</h3>
+            <p style="font-size:12px; color:#64748b; margin-bottom: 15px;">Hanya Butuh Ilmunya Saja</p>
+            
+            <div class="price-strike">Rp 150.000</div>
+            <div class="price-core">Rp 70.000</div>
+            
+            <ul class="pricing-features">
+                <li>
+                    <i class="fas fa-book"></i> 
+                    <div class="feature-text">E-Book Utama "Barbershop Rumahan 7 Hari Jalan"</div>
+                </li>
+                <li class="text-muted">
+                    <i class="fas fa-times text-muted"></i> 
+                    <div class="feature-text text-strike-muted">Tanpa Template Chat & Status WA</div>
+                </li>
+                <li class="text-muted">
+                    <i class="fas fa-times text-muted"></i> 
+                    <div class="feature-text text-strike-muted">Tanpa Ide Konten IG</div>
+                </li>
+                <li class="text-muted">
+                    <i class="fas fa-times text-muted"></i> 
+                    <div class="feature-text text-strike-muted">Tanpa Panduan Pelanggan Rewel</div>
+                </li>
+            </ul>
+
+            <a href="#cara-pesan" class="btn btn-outline">
+                Download E-Book Saja
+            </a>
+        </div>
+    </section>
+
+    <!-- SECTION TARGET SCROLL -->
+    <div id="cara-pesan"></div>
+
+</div>
+
+</body>
+</html>
