@@ -61,6 +61,12 @@
         .text-center { text-align: center; }
         .text-primary { color: var(--primary); }
 
+        /* HERO TITLE – dirapetin */
+        .hero-title{
+            line-height: 1.18;
+            margin-bottom: 10px;
+        }
+
         section {
             padding: 28px 24px;
             border-bottom: 1px solid #f3f4f6;
@@ -100,6 +106,14 @@
             font-size: 22px;
             flex-shrink: 0;
             margin-top: 2px;
+        }
+
+        /* warna icon fix di semua device */
+        .icon-check{
+            color:#22c55e !important; /* hijau */
+        }
+        .icon-x{
+            color:#dc2626 !important; /* merah */
         }
 
         /* WRAP PRICING */
@@ -173,49 +187,40 @@
         }
 
         /* BUTTON PROMO – full width + efek 3D */
-.btn-pricing{
-    display:inline-flex;
-    align-items:center;
-    justify-content:center;
-    gap:8px;
-    padding:14px 24px;
-    border-radius:999px;
-    border:none;
-    cursor:pointer;
-    font-weight:800;
-    text-transform:uppercase;
-    letter-spacing:.02em;
-    background:linear-gradient(90deg,#6366f1,#8b5cf6);
-    color:#ffffff !important;
-    text-decoration:none;
-    font-size:13px;
-    width:100%;          /* ✅ full width di dalam card */
-    max-width:100%;
-    box-shadow:0 9px 0 rgba(55,48,163,0.95); /* bayangan tebal di bawah */
-    transition:transform .12s ease, box-shadow .12s ease, filter .12s ease;
-}
-.btn-pricing span{
-    font-size:18px;
-    line-height:1;
-}
-.btn-pricing:hover{
-    filter:brightness(1.05);
-    transform:translateY(1px);
-    box-shadow:0 6px 0 rgba(55,48,163,0.9);
-}
-.btn-pricing:active{
-    transform:translateY(4px);
-    box-shadow:0 2px 0 rgba(55,48,163,0.8);
-}
-
-/* Versi di HP – sedikit lebih kecil tapi tetap full width */
-@media (max-width:640px){
-    .btn-pricing{
-        padding:12px 20px;
-        font-size:12px;
-    }
-}
-
+        .btn-pricing{
+            display:inline-flex;
+            align-items:center;
+            justify-content:center;
+            gap:8px;
+            padding:14px 24px;
+            border-radius:999px;
+            border:none;
+            cursor:pointer;
+            font-weight:800;
+            text-transform:uppercase;
+            letter-spacing:.02em;
+            background:linear-gradient(90deg,#6366f1,#8b5cf6);
+            color:#ffffff !important;
+            text-decoration:none;
+            font-size:13px;
+            width:100%;
+            max-width:100%;
+            box-shadow:0 9px 0 rgba(55,48,163,0.95);
+            transition:transform .12s ease, box-shadow .12s ease, filter .12s ease;
+        }
+        .btn-pricing span{
+            font-size:18px;
+            line-height:1;
+        }
+        .btn-pricing:hover{
+            filter:brightness(1.05);
+            transform:translateY(1px);
+            box-shadow:0 6px 0 rgba(55,48,163,0.9);
+        }
+        .btn-pricing:active{
+            transform:translateY(4px);
+            box-shadow:0 2px 0 rgba(55,48,163,0.8);
+        }
 
         /* SALES POPUP – versi kecil */
         #sales-popup{
@@ -335,9 +340,9 @@
 
     <!-- HERO -->
     <section style="padding-top:40px;">
-        <h1 class="text-center" style="margin-bottom:12px;">
+        <h1 class="text-center hero-title">
             <span style="font-size:24px;">💈 Cara Mulai Usaha Cukur Rambut yang Menghasilkan</span><br>
-            <span style="background:#eef2ff;color:#4f46e5;padding:2px 10px;border-radius:8px;font-weight:800;">
+            <span style="background:#eef2ff;color:#4f46e5;padding:0px 10px;border-radius:8px;font-weight:800;">
                 dalam 7 Hari!
             </span>
         </h1>
@@ -361,7 +366,7 @@
 
         <ul class="check-list">
             <li>
-                <span class="icon" style="color:#ef4444;">✖</span>
+                <span class="icon icon-x">✖</span>
                 <div>
                     <strong>Minder Takut Hasil Cukuran Jelek</strong>
                     <div style="font-size:14px; color:#64748b;">
@@ -370,7 +375,7 @@
                 </div>
             </li>
             <li>
-                <span class="icon" style="color:#ef4444;">✖</span>
+                <span class="icon icon-x">✖</span>
                 <div>
                     <strong>Sering Disuruh "Gratisin" Teman</strong>
                     <div style="font-size:14px; color:#64748b;">
@@ -379,7 +384,7 @@
                 </div>
             </li>
             <li>
-                <span class="icon" style="color:#ef4444;">✖</span>
+                <span class="icon icon-x">✖</span>
                 <div>
                     <strong>Gak Jago Promosi</strong>
                     <div style="font-size:14px; color:#64748b;">
@@ -388,7 +393,7 @@
                 </div>
             </li>
             <li>
-                <span class="icon" style="color:#ef4444;">✖</span>
+                <span class="icon icon-x">✖</span>
                 <div>
                     <strong>Bingung Mulai dari Mana</strong>
                     <div style="font-size:14px; color:#64748b;">
@@ -397,7 +402,7 @@
                 </div>
             </li>
             <li>
-                <span class="icon" style="color:#ef4444;">✖</span>
+                <span class="icon icon-x">✖</span>
                 <div>
                     <strong>Tidak Punya Patokan Tarif</strong>
                     <div style="font-size:14px; color:#64748b;">
@@ -425,7 +430,7 @@
 
         <ul class="check-list">
             <li style="border-left: 4px solid var(--primary);">
-                <span class="icon" style="color:#22c55e;font-size:20px;">✔</span>
+                <span class="icon icon-check" style="font-size:20px;">✔</span>
                 <div>
                     <strong>Roadmap 7 Hari Mulai Usaha</strong>
                     <div style="font-size:14px; color:#64748b;">
@@ -435,7 +440,7 @@
             </li>
 
             <li style="border-left: 4px solid var(--primary);">
-                <span class="icon" style="color:#22c55e;font-size:20px;">✔</span>
+                <span class="icon icon-check" style="font-size:20px;">✔</span>
                 <div>
                     <strong>Teknik Cukuran Dasar yang Aman</strong>
                     <div style="font-size:14px; color:#64748b;">
@@ -445,7 +450,7 @@
             </li>
 
             <li style="border-left: 4px solid var(--primary);">
-                <span class="icon" style="color:#22c55e;font-size:20px;">✔</span>
+                <span class="icon icon-check" style="font-size:20px;">✔</span>
                 <div>
                     <strong>Strategi Harga "Nggak Bikin Rugi"</strong>
                     <div style="font-size:14px; color:#64748b;">
@@ -455,7 +460,7 @@
             </li>
 
             <li style="border-left: 4px solid var(--primary);">
-                <span class="icon" style="color:#22c55e;font-size:20px;">✔</span>
+                <span class="icon icon-check" style="font-size:20px;">✔</span>
                 <div>
                     <strong>Template Promosi WA & Sosmed</strong>
                     <div style="font-size:14px; color:#64748b;">
@@ -465,7 +470,7 @@
             </li>
 
             <li style="border-left: 4px solid var(--primary);">
-                <span class="icon" style="color:#22c55e;font-size:20px;">✔</span>
+                <span class="icon icon-check" style="font-size:20px;">✔</span>
                 <div>
                     <strong>Tips Biar Pelanggan Betah & Balik Lagi</strong>
                     <div style="font-size:14px; color:#64748b;">
