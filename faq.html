@@ -102,6 +102,100 @@
             transform: rotate(45deg);
         }
         
+        /* SALES POPUP – ukuran kecil (sama seperti yang tadi) */
+        #sales-popup{
+            position:fixed;
+            bottom:8px;
+            right:8px;
+            z-index:9999;
+            display:none;
+        }
+
+        .sales-card{
+            display:flex;
+            align-items:center;
+            gap:6px;
+            background:#ffffff;
+            border-radius:999px;
+            padding:4px 8px;
+            box-shadow:0 3px 10px rgba(15,23,42,0.12);
+            border:1px solid #e2e8f0;
+            max-width:190px;
+            font-size:10px;
+        }
+
+        .sales-avatar-wrap{
+            width:24px;
+            height:24px;
+            border-radius:50%;
+            overflow:hidden;
+            flex-shrink:0;
+        }
+
+        .sales-avatar-img{
+            width:100%;
+            height:100%;
+            object-fit:cover;
+            display:block;
+        }
+
+        .sales-text-main{
+            font-weight:700;
+            color:#0f172a;
+            line-height:1.1;
+            font-size:11px;
+        }
+
+        .sales-location{
+            color:#64748b;
+            font-size:9px;
+        }
+
+        .sales-pill-row{
+            display:flex;
+            align-items:center;
+            gap:3px;
+            margin-top:1px;
+        }
+
+        .sales-pill,
+        .sales-time{
+            font-size:8px;
+            line-height:1;
+            display:flex;
+            align-items:center;
+        }
+
+        .sales-pill{
+            background:#eef2ff;
+            color:#4f46e5;
+            padding:2px 5px;
+            border-radius:999px;
+            font-weight:700;
+        }
+
+        .sales-dot{
+            width:2px;
+            height:2px;
+            border-radius:50%;
+            background:#cbd5f5;
+        }
+
+        .sales-time{
+            color:#9ca3af;
+        }
+
+        .sales-close{
+            margin-left:3px;
+            cursor:pointer;
+            color:#cbd5e1;
+            font-size:9px;
+        }
+
+        .sales-close:hover{
+            color:#94a3b8;
+        }
+
         /* Mobile Optimization */
         @media (max-width: 600px) {
             .container-faq {
@@ -119,6 +213,15 @@
             }
             .faq-a {
                 font-size: 13px;
+            }
+
+            #sales-popup{
+                bottom:6px;
+                right:6px;
+            }
+            .sales-card{
+                transform:scale(0.95);
+                transform-origin:bottom right;
             }
         }
     </style>
@@ -159,7 +262,7 @@
 
         <div class="faq-box" onclick="toggle(this)">
             <p class="faq-q">🤔 Ada garansi uang kembali?<span class="icon">＋</span></p>
-            <div class="faq-a">Ada! Kamu mendapat **7 hari garansi refund** tanpa syarat khusus untuk Paket Komplit.</div>
+            <div class="faq-a">Ada! Kamu mendapat 7 hari garansi refund tanpa syarat khusus untuk Paket Komplit.</div>
         </div>
 
         <div class="faq-box" onclick="toggle(this)">
@@ -168,8 +271,75 @@
         </div>
     </div>
 
+    <!-- POPUP PEMBELI KECIL -->
+    <div id="sales-popup">
+        <div class="sales-card">
+            <div class="sales-avatar-wrap">
+                <img id="popup-avatar" class="sales-avatar-img" src="" alt="Foto pembeli">
+            </div>
+            <div>
+                <div class="sales-text-main" id="popup-name">Mama Rina</div>
+                <div class="sales-location">dari <span id="popup-location">Semarang</span></div>
+                <div class="sales-pill-row">
+                    <div class="sales-pill">Baru saja beli</div>
+                    <div class="sales-dot"></div>
+                    <div class="sales-time" id="popup-time">5 menit lalu</div>
+                </div>
+            </div>
+            <div class="sales-close" id="popup-close">✕</div>
+        </div>
+    </div>
+
     <script>
         function toggle(el){ el.classList.toggle('open'); }
+
+        // DATA PEMBELI UNTUK POPUP
+        const popupBuyers = [
+            { name: "Mam Della", location: "Bandung", avatar: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-q8xqh6yXuc_tqjF5zXCHSOgDzkb14VPSGw&s" },
+            { name: "Kak Ayu", location: "Jakarta", avatar: "https://img.okezone.com/content/2020/06/11/617/2228581/inspirasi-gaya-hijab-ibu-muda-tika-bravani-LbzZcfDGpi.JPG" },
+            { name: "Kak Nanda", location: "Medan", avatar: "https://nnc-media.netralnews.com/IMG-Netral-News-User-2994-A0XIZ96WSO.jpg" },
+            { name: "Mama Kesha", location: "Surabaya", avatar: "https://akcdn.detik.net.id/visual/2020/03/25/7e6bb399-b453-456e-bd13-734e185a055b_11.jpeg?w=480&q=90" },
+            { name: "Mama Rena", location: "Bogor", avatar: "https://mediajatim.com/wp-content/uploads/2023/06/Screenshot_20230614_184956_Instagram.jpg" },
+            { name: "Ka Rina", location: "Solo", avatar: "https://chanelmuslim.com/wp-content/uploads/2022/09/WhatsApp-Image-2022-09-01-at-12.36.32.jpg" },
+            { name: "Sella Andini", location: "Jakarta", avatar: "https://akcdn.detik.net.id/visual/2020/02/17/ed49bc49-f454-4a0d-bf23-73fcaf8272b7_11.jpeg?w=480&q=90" },
+            { name: "Naya N", location: "Sumedang", avatar: "https://timesindonesia.co.id/_next/image?url=https%3A%2F%2Fcdn-1.timesmedia.co.id%2Fimages%2F2025%2F12%2F02%2FuNewsIMG-13692ea00f989a4_1764663311.jpg&w=3840&q=70" },
+            { name: "Mama Billa", location: "Semarang", avatar: "https://akcdn.detik.net.id/visual/2022/04/02/lita-finalis-miss-indonesia-yang-kini-jadi-ibu-rumah-tangga_11.jpeg?w=720&q=90" },
+            { name: "Kirana A", location: "Bogor", avatar: "https://i.pinimg.com/474x/61/66/98/6166981056f999d6201b292aaa12a77b.jpg" }
+        ];
+
+        const popupTimes = ["Baru saja", "1 menit lalu", "2 menit lalu", "5 menit lalu"];
+
+        const popupEl   = document.getElementById("sales-popup");
+        const nameEl    = document.getElementById("popup-name");
+        const locEl     = document.getElementById("popup-location");
+        const timeEl    = document.getElementById("popup-time");
+        const avatarEl  = document.getElementById("popup-avatar");
+        const closeEl   = document.getElementById("popup-close");
+
+        function showSalesPopup() {
+            const buyer = popupBuyers[Math.floor(Math.random() * popupBuyers.length)];
+            const time  = popupTimes[Math.floor(Math.random() * popupTimes.length)];
+
+            nameEl.textContent   = buyer.name;
+            locEl.textContent    = buyer.location;
+            timeEl.textContent   = time;
+            avatarEl.src         = buyer.avatar;
+
+            popupEl.style.display = "block";
+
+            // otomatis hilang setelah 4 detik
+            setTimeout(() => {
+                popupEl.style.display = "none";
+            }, 4000);
+        }
+
+        closeEl.addEventListener("click", () => {
+            popupEl.style.display = "none";
+        });
+
+        // pertama muncul setelah 4 detik, lalu tiap 12 detik
+        setTimeout(showSalesPopup, 4000);
+        setInterval(showSalesPopup, 12000);
     </script>
 </body>
 </html>

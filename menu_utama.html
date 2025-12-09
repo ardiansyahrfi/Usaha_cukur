@@ -66,7 +66,6 @@
             border-bottom: 1px solid #f3f4f6;
         }
 
-        /* section tujuan scroll: TANPA GARIS */
         #order-section{
             border-bottom: none !important;
             padding-top: 18px;
@@ -170,96 +169,148 @@
         .cta{
             display:flex;
             justify-content:center;
-            margin-top:12px;
+            margin-top:16px;
         }
 
-        /* BUTTON – versi soft, teks terang */
-        .btn-pricing{
-            display:inline-flex;
-            align-items:center;
-            justify-content:center;
-            gap:8px;
-            padding:14px 24px;
-            border-radius:18px;
-            border:none;
-            cursor:pointer;
-            font-weight:800;
-            text-transform:uppercase;
-            letter-spacing:.02em;
-            background:linear-gradient(180deg,var(--accent-start),var(--accent-end));
-            color:#ffffff !important;
-            text-shadow:0 0 4px rgba(0,0,0,0.35);
-            text-decoration:none;
-            font-size:13px;
-            min-height:48px;
-            width:100%;
-            max-width:230px;
-            transition:transform .15s ease, filter .15s ease;
-        }
-        .btn-pricing span{font-size:18px;line-height:1;}
-        .btn-pricing:hover{
-            filter:brightness(1.05);
-            transform:translateY(-1px);
-        }
-        .btn-pricing:active{
-            transform:translateY(1px);
-        }
+        /* BUTTON PROMO – full width + efek 3D */
+.btn-pricing{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    padding:14px 24px;
+    border-radius:999px;
+    border:none;
+    cursor:pointer;
+    font-weight:800;
+    text-transform:uppercase;
+    letter-spacing:.02em;
+    background:linear-gradient(90deg,#6366f1,#8b5cf6);
+    color:#ffffff !important;
+    text-decoration:none;
+    font-size:13px;
+    width:100%;          /* ✅ full width di dalam card */
+    max-width:100%;
+    box-shadow:0 9px 0 rgba(55,48,163,0.95); /* bayangan tebal di bawah */
+    transition:transform .12s ease, box-shadow .12s ease, filter .12s ease;
+}
+.btn-pricing span{
+    font-size:18px;
+    line-height:1;
+}
+.btn-pricing:hover{
+    filter:brightness(1.05);
+    transform:translateY(1px);
+    box-shadow:0 6px 0 rgba(55,48,163,0.9);
+}
+.btn-pricing:active{
+    transform:translateY(4px);
+    box-shadow:0 2px 0 rgba(55,48,163,0.8);
+}
 
-        /* SALES POPUP */
+/* Versi di HP – sedikit lebih kecil tapi tetap full width */
+@media (max-width:640px){
+    .btn-pricing{
+        padding:12px 20px;
+        font-size:12px;
+    }
+}
+
+
+        /* SALES POPUP – versi kecil */
         #sales-popup{
             position:fixed;
-            bottom:18px;
-            right:18px;
+            bottom:8px;
+            right:8px;
             z-index:9999;
             display:none;
         }
+
         .sales-card{
             display:flex;
             align-items:center;
-            gap:10px;
+            gap:6px;
             background:#ffffff;
             border-radius:999px;
-            padding:8px 14px;
-            box-shadow:0 6px 18px rgba(15,23,42,0.16);
+            padding:4px 8px;
+            box-shadow:0 3px 10px rgba(15,23,42,0.12);
             border:1px solid #e2e8f0;
-            max-width:260px;
-            font-size:12px;
+            max-width:190px;
+            font-size:10px;
         }
+
         .sales-avatar-wrap{
-            position:relative;
-            width:32px;
-            height:32px;
-            border-radius:999px;
+            width:24px;
+            height:24px;
+            border-radius:50%;
             overflow:hidden;
             flex-shrink:0;
         }
+
         .sales-avatar-img{
             width:100%;
             height:100%;
             object-fit:cover;
             display:block;
         }
-        .sales-text-main{font-weight:700;color:#0f172a;line-height:1.2;}
-        .sales-location{color:#64748b;font-size:11px;}
-        .sales-pill-row{display:flex;align-items:center;gap:6px;margin-top:4px;}
+
+        .sales-text-main{
+            font-weight:700;
+            color:#0f172a;
+            line-height:1.1;
+            font-size:11px;
+        }
+
+        .sales-location{
+            color:#64748b;
+            font-size:9px;
+        }
+
+        .sales-pill-row{
+            display:flex;
+            align-items:center;
+            gap:3px;
+            margin-top:1px;
+        }
+
         .sales-pill,
         .sales-time{
-            font-size:10px;
+            font-size:8px;
             line-height:1;
             display:flex;
             align-items:center;
         }
-        .sales-pill{background:#eef2ff;color:#4f46e5;padding:3px 8px;border-radius:999px;font-weight:700;}
-        .sales-dot{width:3px;height:3px;border-radius:999px;background:#cbd5f5;}
-        .sales-time{color:#9ca3af;}
-        .sales-close{margin-left:6px;cursor:pointer;color:#cbd5e1;font-size:11px;}
-        .sales-close:hover{color:#94a3b8;}
-        @keyframes popup-in{from{opacity:0;transform:translateY(12px);}to{opacity:1;transform:translateY(0);}}
-        @keyframes popup-out{from{opacity:1;transform:translateY(0);}to{opacity:0;transform:translateY(12px);}}
-        .popup-enter{animation:popup-in .35s ease-out forwards;}
-        .popup-exit{animation:popup-out .35s ease-in forwards;}
 
-        /* Penyesuaian Mobile */
+        .sales-pill{
+            background:#eef2ff;
+            color:#4f46e5;
+            padding:2px 5px;
+            border-radius:999px;
+            font-weight:700;
+        }
+
+        .sales-dot{
+            width:2px;
+            height:2px;
+            border-radius:50%;
+            background:#cbd5f5;
+        }
+
+        .sales-time{
+            color:#9ca3af;
+        }
+
+        .sales-close{
+            margin-left:3px;
+            cursor:pointer;
+            color:#cbd5e1;
+            font-size:9px;
+        }
+
+        .sales-close:hover{
+            color:#94a3b8;
+        }
+
         @media (max-width:640px){
             .container{padding-bottom: 20px;}
             .wrap{max-width:100%; padding:0 16px;}
@@ -271,9 +322,10 @@
             .card{padding:18px}
             .pkgname{font-size:16px}
             .price{font-size:22px}
-            .btn-pricing{padding:12px 18px;font-size:12px;min-height:44px}
             ul.features li{font-size:12px;margin-bottom:8px}
             .subtitle{font-size:12px}
+            #sales-popup{bottom:6px;right:6px;}
+            .sales-card{transform:scale(0.95);transform-origin:bottom right;}
         }
     </style>
 </head>
@@ -495,9 +547,7 @@
 
     <!-- SECTION TUJUAN SCROLL – TANPA GARIS -->
     <section id="order-section">
-        <p style="text-align:center;font-size:14px;color:#6b7280;">
-
-        </p>
+        <p style="text-align:center;font-size:14px;color:#6b7280;"></p>
     </section>
 
 </div>
@@ -522,7 +572,7 @@
 </div>
 
 <script>
-    // DATA PEMBELI KHUSUS POPUP (dengan foto orang Indo)
+    // DATA PEMBELI KHUSUS POPUP
     const popupBuyers = [
         { name: "Mam Della", location: "Bandung", avatar: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-q8xqh6yXuc_tqjF5zXCHSOgDzkb14VPSGw&s" },
         { name: "Kak Ayu", location: "Jakarta", avatar: "https://img.okezone.com/content/2020/06/11/617/2228581/inspirasi-gaya-hijab-ibu-muda-tika-bravani-LbzZcfDGpi.JPG" },
@@ -555,31 +605,21 @@
         avatarEl.src         = buyer.avatar;
 
         popupEl.style.display = "block";
-        popupEl.classList.remove("popup-exit");
-        popupEl.classList.add("popup-enter");
 
         setTimeout(() => {
-            popupEl.classList.remove("popup-enter");
-            popupEl.classList.add("popup-exit");
-            setTimeout(() => {
-                popupEl.style.display = "none";
-            }, 350);
+            popupEl.style.display = "none";
         }, 5000);
     }
 
     closeEl.addEventListener("click", () => {
-        popupEl.classList.remove("popup-enter");
-        popupEl.classList.add("popup-exit");
-        setTimeout(() => {
-            popupEl.style.display = "none";
-        }, 350);
+        popupEl.style.display = "none";
     });
 
     // pertama muncul setelah 4 detik, lalu tiap 12 detik
     setTimeout(showSalesPopup, 4000);
     setInterval(showSalesPopup, 12000);
 
-    // SMOOTH SCROLL untuk semua link anchor (#)
+    // SMOOTH SCROLL
     document.querySelectorAll('a[href^="#"]').forEach(function(link){
         link.addEventListener('click', function(e){
             const targetId = this.getAttribute('href');
