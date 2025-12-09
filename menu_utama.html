@@ -38,13 +38,6 @@
             --danger: #dc2626;
             --bg-soft: #ffffff;
 
-            --faq-primary:#0ea5e9;
-            --faq-bg:#f0f9ff;
-            --faq-white:#ffffff;
-            --faq-text:#0f172a;
-            --faq-muted:#64748b;
-            --faq-radius:20px;
-
             /* Vars untuk Pricing Card */
             --border:#e5e7eb;
             --title:#111827;
@@ -85,17 +78,21 @@
             display: flex;
             flex-direction: column;
             gap: 15px;
+            max-width: 620px;          /* lebar kartu dibatasi */
+            margin: 0 auto;            /* center relatif kontainer */
         }
 
         ul.check-list li {
             display: flex;
             align-items: flex-start;
-            gap: 15px;
+            gap: 14px;
             background: #ffffff;
             padding: 18px;
-            border-radius: 12px;
+            border-radius: 10px;
             border: 1px solid #e5e7eb;
             transition: transform 0.2s, border-color 0.2s;
+            margin-left: -3px;         /* geser sedikit ke kiri biar sejajar T */
+            margin-right: 4px;
         }
         ul.check-list li:hover {
             transform: translateY(-1px);
@@ -108,14 +105,6 @@
             margin-top: 2px;
         }
 
-        /* warna icon fix di semua device */
-        .icon-check{
-            color:#22c55e !important; /* hijau */
-        }
-        .icon-x{
-            color:#dc2626 !important; /* merah */
-        }
-
         /* WRAP PRICING */
         .wrap{
             width:100%;
@@ -124,21 +113,21 @@
             padding:0 24px;
         }
 
-        header{text-align:center;margin-bottom:24px}
+        header{text-align:center;margin-bottom:20px}
         h1{font-size:22px;margin:0 0 6px;color:var(--title);font-weight:800}
         p.lead{margin:0;color:var(--subtitle);font-size:14px;line-height:1.5}
 
         .grid{
             display:grid;
             grid-template-columns: 1fr;
-            gap:20px;
-            margin-top:20px;
+            gap:18px;
+            margin-top:16px;
         }
 
         .card{
             background:#ffffff;
             border:1px solid var(--border);
-            padding:24px;
+            padding:22px 20px 18px;
             border-radius:18px;
             position:relative;
             overflow:visible;
@@ -169,21 +158,27 @@
         }
 
         .pkgname{font-weight:800;font-size:18px;text-align:center;color:var(--title)}
-        .subtitle{text-align:center;color:var(--subtitle);font-size:13px;margin-top:4px;margin-bottom:12px}
-        .price-old{text-align:center;text-decoration:line-through;color:#9ca3af;margin:6px 0;font-size:14px}
-        .price{text-align:center;font-size:26px;font-weight:800;margin:4px 0 16px;color:var(--price)}
+        .subtitle{text-align:center;color:var(--subtitle);font-size:13px;margin-top:4px;margin-bottom:10px}
+        .price-old{text-align:center;text-decoration:line-through;color:#9ca3af;margin:4px 0;font-size:14px}
+        .price{text-align:center;font-size:26px;font-weight:800;margin:4px 0 12px;color:var(--price)}
 
-        ul.features{list-style:none;padding:0;margin:0 0 16px}
-        ul.features li{display:flex;align-items:center;gap:10px;margin-bottom:10px;font-weight:600;color:#111827;font-size:13px}
+        ul.features{list-style:none;padding:0;margin:0 0 12px}
+        ul.features li{display:flex;align-items:center;gap:10px;margin-bottom:8px;font-weight:600;color:#111827;font-size:13px}
         ul.features li i{font-size:16px;color:var(--icon-color);width:18px;text-align:center;flex-shrink:0}
 
-        .note{font-size:11px;color:var(--muted);margin-top:10px;text-align:center}
+        .note{
+            font-size:11px;
+            color:var(--muted);
+            margin-top:6px;
+            text-align:center
+        }
         .best{outline:none;}
 
         .cta{
             display:flex;
             justify-content:center;
-            margin-top:16px;
+            margin-top:12px;
+            padding:0 2px;
         }
 
         /* BUTTON PROMO – full width + efek 3D */
@@ -192,7 +187,7 @@
             align-items:center;
             justify-content:center;
             gap:8px;
-            padding:14px 24px;
+            padding:13px 22px;
             border-radius:999px;
             border:none;
             cursor:pointer;
@@ -319,16 +314,19 @@
         @media (max-width:640px){
             .container{padding-bottom: 20px;}
             .wrap{max-width:100%; padding:0 16px;}
-            header{margin-bottom:20px}
+            header{margin-bottom:18px}
             h1{font-size:20px}
             p.lead{font-size:13px}
             section{padding:24px 18px;}
             #order-section{padding-top:16px;padding-bottom:8px;}
-            .card{padding:18px}
+            .card{padding:18px 16px 16px;}
             .pkgname{font-size:16px}
             .price{font-size:22px}
-            ul.features li{font-size:12px;margin-bottom:8px}
+            ul.features li{font-size:12px;margin-bottom:7px}
             .subtitle{font-size:12px}
+            .cta{margin-top:10px;padding:0 2px;}
+            .btn-pricing{padding:12px 20px;font-size:12px;box-shadow:0 8px 0 rgba(55,48,163,0.95);}
+            .note{margin-top:5px;}
             #sales-popup{bottom:6px;right:6px;}
             .sales-card{transform:scale(0.95);transform-origin:bottom right;}
         }
@@ -366,7 +364,7 @@
 
         <ul class="check-list">
             <li>
-                <span class="icon icon-x">✖</span>
+                <span class="icon" style="color:#fb7185;font-size:22px;">✖</span>
                 <div>
                     <strong>Minder Takut Hasil Cukuran Jelek</strong>
                     <div style="font-size:14px; color:#64748b;">
@@ -375,7 +373,7 @@
                 </div>
             </li>
             <li>
-                <span class="icon icon-x">✖</span>
+                <span class="icon" style="color:#fb7185;font-size:22px;">✖</span>
                 <div>
                     <strong>Sering Disuruh "Gratisin" Teman</strong>
                     <div style="font-size:14px; color:#64748b;">
@@ -384,7 +382,7 @@
                 </div>
             </li>
             <li>
-                <span class="icon icon-x">✖</span>
+                <span class="icon" style="color:#fb7185;font-size:22px;">✖</span>
                 <div>
                     <strong>Gak Jago Promosi</strong>
                     <div style="font-size:14px; color:#64748b;">
@@ -393,7 +391,7 @@
                 </div>
             </li>
             <li>
-                <span class="icon icon-x">✖</span>
+                <span class="icon" style="color:#fb7185;font-size:22px;">✖</span>
                 <div>
                     <strong>Bingung Mulai dari Mana</strong>
                     <div style="font-size:14px; color:#64748b;">
@@ -402,7 +400,7 @@
                 </div>
             </li>
             <li>
-                <span class="icon icon-x">✖</span>
+                <span class="icon" style="color:#fb7185;font-size:22px;">✖</span>
                 <div>
                     <strong>Tidak Punya Patokan Tarif</strong>
                     <div style="font-size:14px; color:#64748b;">
@@ -430,7 +428,7 @@
 
         <ul class="check-list">
             <li style="border-left: 4px solid var(--primary);">
-                <span class="icon icon-check" style="font-size:20px;">✔</span>
+                <span class="icon" style="font-size:20px;color:#22c55e;">✔</span>
                 <div>
                     <strong>Roadmap 7 Hari Mulai Usaha</strong>
                     <div style="font-size:14px; color:#64748b;">
@@ -440,7 +438,7 @@
             </li>
 
             <li style="border-left: 4px solid var(--primary);">
-                <span class="icon icon-check" style="font-size:20px;">✔</span>
+                <span class="icon" style="font-size:20px;color:#22c55e;">✔</span>
                 <div>
                     <strong>Teknik Cukuran Dasar yang Aman</strong>
                     <div style="font-size:14px; color:#64748b;">
@@ -450,7 +448,7 @@
             </li>
 
             <li style="border-left: 4px solid var(--primary);">
-                <span class="icon icon-check" style="font-size:20px;">✔</span>
+                <span class="icon" style="font-size:20px;color:#22c55e;">✔</span>
                 <div>
                     <strong>Strategi Harga "Nggak Bikin Rugi"</strong>
                     <div style="font-size:14px; color:#64748b;">
@@ -460,7 +458,7 @@
             </li>
 
             <li style="border-left: 4px solid var(--primary);">
-                <span class="icon icon-check" style="font-size:20px;">✔</span>
+                <span class="icon" style="font-size:20px;color:#22c55e;">✔</span>
                 <div>
                     <strong>Template Promosi WA & Sosmed</strong>
                     <div style="font-size:14px; color:#64748b;">
@@ -470,7 +468,7 @@
             </li>
 
             <li style="border-left: 4px solid var(--primary);">
-                <span class="icon icon-check" style="font-size:20px;">✔</span>
+                <span class="icon" style="font-size:20px;color:#22c55e;">✔</span>
                 <div>
                     <strong>Tips Biar Pelanggan Betah & Balik Lagi</strong>
                     <div style="font-size:14px; color:#64748b;">
